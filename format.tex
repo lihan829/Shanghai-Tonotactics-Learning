@@ -1,0 +1,166 @@
+%%% Preamble for Pomona Linguistics Paper Template %%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Document Setup & Layout
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{titlesec}
+\usepackage[parfill]{parskip}
+\setlength{\parindent}{20pt}
+\usepackage{setspace}
+\singlespacing %\doublespacing 
+\sloppy
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Math & Logic
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{amsmath, amssymb, amsfonts, amsthm}
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newcommand{\kuo}[1]{(\ref{#1})}
+\newcommand{\forth}[1]{(\citeauthor{#1} (forthcoming)}
+\usepackage{expex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Fonts & Symbols
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\usepackage{fourier}
+\usepackage{libertine}
+\usepackage{tipa}         % For IPA symbols
+\usepackage{textgreek}    % Greek outside math mode
+\usepackage{ulem}         % Underline/strikeout
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Tables & Figures
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{booktabs, caption, makecell, array, tabularx, multirow, multicol}
+\usepackage{adjustbox}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage[table]{xcolor}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Trees & Diagrams
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[linguistics]{forest}
+%\forestset{
+%  asr/.style={
+%    for tree={
+%      align=center,
+%      parent anchor=south,
+%      s sep=4mm,
+%      l sep=6mm
+%    }
+%  },
+%  strike/.style={
+%    edge label={
+%      node[midway, sloped, rotate=90] {=}
+%    }
+%  }
+%}
+\usepackage{qtree}
+
+% Arrows and positioning
+\usepackage{tikz}
+\usetikzlibrary{arrows, arrows.meta, positioning, matrix, tikzmark}
+\usepackage{pstricks, pst-node}
+
+% TikZ node circle command
+\newcommand{\circled}[1]{\begin{tikzpicture}[baseline=(word.base)]
+\node[draw, rounded corners, text height=8pt, text depth=2pt, inner sep=2pt,
+outer sep=0pt, use as bounding box] (word) {#1};
+\end{tikzpicture}
+}
+\tikzset{state/.style={circle, draw, minimum size=20pt, inner sep=5pt}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Algorithms
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\algrenewcommand\algorithmiccomment[1]{\hfill{\footnotesize\textit{// #1}}}
+%\algrenewcommand\algorithmiccomment[1]{\hfill$\triangleright$~
+%{\footnotesize\textit{#1}}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Linguistics & Glossing
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{leipzig}
+\usepackage{expex}
+\usepackage{gb4e}
+\noautomath % needed for gb4e in some cases
+\usepackage{phonrule} % SPE-style rules
+\usepackage{marvosym}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Text & Misc
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{enumitem}
+\setlist[itemize]{itemsep=1mm, parsep=0pt}
+\usepackage{ragged2e}
+\usepackage{stackengine}
+\usepackage{verbatim}
+\usepackage{todonotes}
+\usepackage{color, soul}
+\usepackage{metalogo}  % for XeLaTeX logo, etc.
+
+\usepackage{bm} % for bold math symbols
+%\usepackage{wasysym}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Hyperlinks & Citations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[
+  colorlinks = true,
+  linkcolor = blue,
+  urlcolor  = blue,
+  citecolor = blue,
+  anchorcolor = blue
+]{hyperref}
+\usepackage{natbib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Shortcuts & Tweaks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{xspace}
+\xspaceaddexceptions{]\}}
+
+% Replace default emptyset with nicer one
+
+\makeatletter
+\def\maketitle{%
+  \begin{center}
+    {\Large \bfseries \color{black} \@title \par}
+
+%    {\normalsize \@author \par}
+
+%    {\small \@date \par}
+  \end{center}
+}
+\makeatother
+
+\let\oldemptyset\emptyset
+\let\emptyset\varnothing
+\newcommand{\nothing}{$\emptyset$}
+
+% Leipzig glossing again (required by some documents)
+\RequirePackage{leipzig}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% END of preamble
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
