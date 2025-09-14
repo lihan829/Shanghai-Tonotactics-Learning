@@ -3,6 +3,8 @@
 \title{Register and Representation of Shanghai Chinese}
 \begin{document}
 \maketitle
+
+Shanghainese (Shanghai Chinese) is a variety of Wu Chinese spoken in Shanghai, one of the four municipalities of China. 
 The tonal system in Shanghai are mainly divided into 5 tone system. there is not a consistent transctiption of tones caus they are in different representaing system: letter and number transcription. 
 
 \begin{table}[htbp]
@@ -27,12 +29,12 @@ The tonal system in Shanghai are mainly divided into 5 tone system. there is not
         \cmidrule{3-5}\cmidrule{7-9}
          &  & \textbf{TV(\ng)} & \textbf{DV(\ng)} & \textbf{SV(\ng)} & & \textbf{TV\textglotstop} & \textbf{DV\textglotstop} & \textbf{SV\textglotstop} \\
         \midrule
-        \multirow{3}{*}{\textbf{+upper}} 
+        \multirow{3}{*}{\textbf{+murmur}} 
             & \textbf{T1} & pa ``father'' & \texttimes & ma ``mother'' & & \texttimes & \texttimes & \texttimes \\
             & \textbf{T2} & pa ``dam''    & \texttimes & me ``pretty'' & & \texttimes & \texttimes & \texttimes \\
             & \textbf{T4} & \texttimes & \texttimes & \texttimes & & paʔ ``eight'' & \texttimes & aʔ ``duck'' \\
         \midrule
-        \multirow{2}{*}{\textbf{-upper}} 
+        \multirow{2}{*}{\textbf{-murmur}} 
             & \textbf{T3} & \texttimes & ba ``climb'' & ma ``horse'' & & \texttimes & \texttimes & \texttimes \\
             & \textbf{T5} & \texttimes & \texttimes & \texttimes & & \texttimes & baʔ ``white'' & maʔ ``pulse'' \\
         \bottomrule
@@ -58,44 +60,85 @@ Previous research offers divergent descriptions of what ``murmur'' entails. Ther
 \citep{yipsniderPhonologyTone1993} proposes three possible candidates where register could either be a laryngeal feature \textsc{[voice, +spread glottis]}, a tonal feature \textsc{[-upper]} or a feature with afgfinities to bothe tonal aand larynegeal nodes. Of these candidates, (I) directly predicts that murmur predicts the onset voicing but impoosible to explain the deletation of murmur in no-iunitial syllables, this can be accounted by (ii) but it doesnt reval the why upper should condition onset voicing. In this case, Yip proposes that the murmur is a feature which partakes both characterialsices. This is argued agaisnt by \citep{zhu1999shanghai} who points out that in the realization, the syllable-initialed voiced obstruent is sometimes voiceless, (see also in \citep{chen2015shanghai}).
 
 
-Duanmu, based on Bao's model, proposes that the Register is always reflected by voice quality but not always by pitch. The model then he proposes is that pitch and refgister are two planes, while the first one dominiates stiff and slack voice quality, the second one contails tones. 
+Duanmu, based on Bao's model, proposes that the Register is always reflected by voice quality but not always by pitch. The model then he proposes is that pitch and refgister are two planes, while the first one dominiates stiff and slack voice quality, the second one contails tones. A similar practice was done by Ren (1992) who treats the mmurmur feature as the feature of the initial consonant.
 
-\begin{enumerate}
-    \item coda
-    \item part of rime and shares the mora with the vowel
-\end{enumerate}
+Another issue concerning the shanghai feature geometry. In addition to where the register should go, there are also debates about the place of medial and coda should be. Duanmu proposes that all Chinese dialects to have the same underlying structure. Instead of using mora theory, he uses X slots to indicate three slots under syllable: one for onset and two for rime. which zhu differs. 
+
+Representations:
+
+
+
+    \begin{figure}[h!]
+\centering
 \begin{tikzpicture}[-,shorten >=1pt]
     \tikzstyle{state}=[fill=white,draw=black,text=black,node distance=16mm]
 
-    \node (s1) at (0,0) {[+upper]};
-    \node[circle, draw, fill=black, inner sep=2pt,
-    label=above right:Tonal Node Root] (s2) at (0,-1) {}; % small filled circle
-    \node (T1)  at (-1,-2) {L};
-    \node (T2) at (1,-2) {H};
+    % First graph (on the left)
+    \node (tbu) at (1.5,0) {TBU};
+    \node (R) at (.5,-1) {V/R};
+    \node (P) at (2.5,-1) {Pitch};
+    \node (r1) at (0,-2) {[slack]};
+    \node (r2) at (1.2,-2) {[stiff]};
+    \node (p1) at (2,-2) {[above]};
+    \node (p2) at (3,-2) {[below]};
+    \draw (tbu) -> (R) -> (r1);
+    \draw (tbu) -> (R) -> (r2);
+    \draw (tbu) -> (P) -> (p1);
+    \draw (tbu) -> (P) -> (p2);
 
-    \draw (s1) -> (s2);
-    \draw (s2) -> (T1);
-    \draw (s2) -> (T2);
+
+    % Second graph (shifted right)
+    \begin{scope}[xshift=8cm]
+        \node (sS) at (0,0) {S};
+        \node (o) at (-1,-1) {O};
+        \node (r) at (0.5,-1) {R};
+        \node (x1) at (-1,-2) {X};
+        \node (x2) at (0,-2) {X};
+        \node (x3) at (1,-2) {X};
+        \draw (sS) -> (o) -> (x1);
+        \draw (sS) -> (r) -> (x2);
+        \draw (r) -> (x3);
+    \end{scope}
+
+    % Cross edges from TBU to Xs
+    \draw[dashed] (tbu) .. controls +(3,-1) and +(-2,1) .. (x1);
+    \draw[dashed] (tbu) .. controls +(4,-1) and +(-1,1) .. (x2);
+    \draw[dashed] (tbu) .. controls +(5,-1) and +(0,1) .. (x3);
+
 \end{tikzpicture}
+\end{figure}
 
-    
+    \begin{figure}[h!]
+\centering
 \begin{tikzpicture}[-,shorten >=1pt]
     \tikzstyle{state}=[fill=white,draw=black,text=black,node distance=16mm]
 
-    \node (s1) at (0,0) {TBU};
-    \node[circle, draw, fill=white, inner sep=2pt] (s2) at (0,-1) {}; % small filled circle
-    \node (T1) at (-1.5,-2) {Register};
-    \node (T2) at (1.5,-2) {Pitch};
-    \node (p1) at (2,-3) {above};
-    \node (p2) at (1,-3) {below};
-    \node (r1) at (-2,-3) {slack};
-    \node (r2) at (-1,-3) {stiff};
-    \draw (s1) -> (s2);
-    \draw (s2) -> (T1) -> (r1);
-    \draw (s2) -> (T1) -> (r2);
-    \draw (s2) -> (T2) -> (p1);
-    \draw  (T2) -> (p2);
+        \node (w) at (0,1) {w};
+        \node (re) at (2,1) {[upper]};
+        \node (s) at (0,0) {S};
+        \node (o) at (-1,-1) {O};
+        \node (r) at (0.5,-1) {R};
+        \node (T) at (2.5,-1) {T};
+        \node (t1) at (2.0,-2) {L};
+        \node (t2) at (3,-2) {H};
+        
+        \node (x1) at (-1,-2) {X};
+        \node (x2) at (0,-2) {Nu};
+        \node (x3) at (1,-2) {Co};
+        \node (m1) at (0,-3) {$\mu$};
+        \node (m2) at (1,-3) {$\mu$};
+        \draw (w) -> (s);
+        \draw (T) -> (t1);
+        \draw (T) -> (t2);
+        \draw (s) -> (o) -> (x1) ;
+        \draw (s) -> (r) -> (x2) -> (m1);
+        \draw (r) -> (x3) -> (m2);
+        \draw [dotted](r) -> (T);
+        \draw [dotted](w) -> (re);
 \end{tikzpicture}
+\end{figure}
+
+
 
 \bibliography{refs.bib}
 \bibliographystyle{apalike}
