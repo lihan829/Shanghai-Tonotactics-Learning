@@ -56,7 +56,7 @@ register. Murmur can thus be
 understood as the phonetic realization of Shanghai register 
 \citep{zhu1999shanghai}. The terminology for this feature varies across 
 researchers, including [slack] \citep{duanmu1999metrical}, [+voice] (Ren, ???), 
-and [spread glottis] (Keating, as cited in \citealt{yip1993tonal}). For 
+and [+slack vocal cords] (Keating, as cited in \citealt{yip1993tonal}). For 
 consistency, this paper will use the term register, with the understanding that 
 it refers not only to pitch lowering but also to breathy phonation.
 
@@ -73,70 +73,81 @@ Second, in polysyllabic words, only the register of the initial syllable is
 realized on the surface, and will also dominate the whole phrase and change the 
 voicing of the following consonants\todo{give some examples}.
 
-\subsection{Representation of Shanghai Tones}
-Since the register is a major distinction in shanghai tonology, many models of 
-shanghai tones have been proposed based on feature geometry 
-\citep{sagey1986feature}, where the most detbaitng come from where
-the resgiter should locate. 
+\subsection{Representation of Register}
+Since register is a major distinction in Shanghai tonology, many models of 
+Shanghai tones have been proposed within feature geometry frameworks 
+\citep{clements1985,sagey1986feature}. The main debate concerns where register should be 
+located. The proposals are listed below, and their corresponding feature geometry representations are sketched beneath.
 
-\citet{yip1993tonal} propose three possible candidates for the representation 
-of register: (i) a laryngeal feature \textsc{[voice, +spread glottis]}, (ii) a 
-tonal feature \textsc{[-upper]}, or (iii) a feature that has affinities with 
-both tonal and laryngeal nodes. Each option has consequences. (i) directly 
-predicts that murmur correlates with onset voicing, but fails to explain the 
-deletion of murmur in non-initial syllables. This gap is addressed by (ii), 
-which can capture murmur deletion, but does not explain why [+upper] should 
-condition onset voicing. In light of this, Yip proposes that murmur should be 
-analyzed as a hybrid feature, sharing properties of both laryngeal and tonal 
-domains. This view, however, is challenged by \citet{zhu1999shanghai}, who 
-observes that syllable-initial voiced obstruents are sometimes realized as 
-voiceless (see also \citet{chen2015shanghai}).
+\begin{enumerate} \setlength\itemsep{0em} \setlength\parskip{0em}
+	\item A tonal feature \citep{yip1980diss}, or perhaps shared by laryngeal \citep{yip1993tonal}.
+	\item A feature of the \textit{onset}, conditioned by [+slack] (\citeauthor{duanmu1988}, based on \citet{bao1999structure}).
+	\item A feature of the \textit{initial consonant} \citep{ren1992} (to read).
+	\item A property of the \textit{phonological word} \citep{zhu1999shanghai}.
+\end{enumerate}
 
-Building on Bao’s model, Duanmu proposes that register is consistently reflected in voice quality but not always in pitch. His model treats pitch and register as two planes: one plane encodes the stiff/slack distinction in voice quality, while the other contains tonal features. Similarly, Ren (1992) treats murmur as a feature associated with the initial consonant.
+\input{three-rep.tex}
 
-Another issue in the feature geometry of Shanghainese concerns the representation of medial and coda positions. Beyond the placement of register, scholars also debate how the syllable should be internally structured. Duanmu proposes that all Chinese dialects share the same underlying syllable structure. Rather than mora theory, he employs X-slots, positing three slots under the syllable node: one for the onset and two for the rime. Zhu, however, diverges from this proposal, offering a different analysis of syllable structure in Shanghainese.
+\citet{yip1980diss,yip1993tonal} propose that the register should be a feature 
+under the tonal node, and also dominate the pitch, as indicated in 
+Figure~\ref{three-rep}. Note in Yip's model, the register dominate the pitch 
+nodes and apply to each syllable. In polysyllabic forms, only the register
+of the inital syllable are retained and the rest are delated. The shortcoming
+is that it does not reflect why [+upper] should condition onset voicing. 
 
+Different from \citet{yip1980diss,yip1993tonal}, \citet{duanmu1988} proposed 
+that pitch and register are represented on two separate planes: one encodes the 
+stiff/slack distinction in voice quality, while the other contains tonal 
+features. The motivation is that register is consistently reflected in voice 
+quality but not always in pitch. A major difference between Duanmu’s proposal 
+and others is that the node represents an X-slot (either a consonant or a 
+vowel), and each X-slot is specified for both register and pitch. Consequently, 
+whereas a tone can be represented as a single feature bundle in Yip’s system, 
+two sets of features are required in Duanmu’s model. For example, [55] is 
+represented as [+u, +H] in Yip’s model but as [+st, +H][+st, +H] in Duanmu’s.
 
+Another candidate proposed by \citet{zhu1999shanghai} places register at the 
+top of the phonological word, while the pitch node is linked to the rime. This 
+differs from Yip’s model in that, whereas Yip connects register to each 
+syllable, Zhu’s model assigns a single register node dominating the entire 
+word. This accounts for the fact that in polysyllabic words only one register 
+value is retained. Unlike the other two models, Zhu’s analysis does not 
+associate register with voicing at all.
 
-\begin{figure}[h!]
-	\centering
-	\begin{tikzpicture}[-,shorten >=1pt]
-		\tikzstyle{state}=[fill=white,draw=black,text=black,node distance=16mm]
-		
-		% First graph (on the left)
-		\node (tbu) at (1.5,0) {TBU};
-		\node (R) at (.5,-1) {V/R};
-		\node (P) at (2.5,-1) {Pitch};
-		\node (r1) at (0,-2) {[slack]};
-		\node (r2) at (1.2,-2) {[stiff]};
-		\node (p1) at (2,-2) {[above]};
-		\node (p2) at (3,-2) {[below]};
-		\draw (tbu) -> (R) -> (r1);
-		\draw (tbu) -> (R) -> (r2);
-		\draw (tbu) -> (P) -> (p1);
-		\draw (tbu) -> (P) -> (p2);
-		
-		
-		% Second graph (shifted right)
-		\begin{scope}[xshift=8cm]
-			\node (sS) at (0,0) {S};
-			\node (o) at (-1,-1) {O};
-			\node (r) at (0.5,-1) {R};
-			\node (x1) at (-1,-2) {X};
-			\node (x2) at (0,-2) {X};
-			\node (x3) at (1,-2) {X};
-			\draw (sS) -> (o) -> (x1);
-			\draw (sS) -> (r) -> (x2);
-			\draw (r) -> (x3);
-		\end{scope}
-		
-		% Cross edges from TBU to Xs
-		\draw[dashed] (tbu) .. controls +(3,-1) and +(-2,1) .. (x1);
-		\draw[dashed] (tbu) .. controls +(4,-1) and +(-1,1) .. (x2);
-		\draw[dashed] (tbu) .. controls +(5,-1) and +(0,1) .. (x3);
-		
-	\end{tikzpicture}
-\end{figure}
+Another issue in the feature geometry of Shanghainese concerns the 
+representation of medial and coda positions. Beyond the placement of register, 
+scholars also debate how the syllable should be internally structured. Duanmu 
+proposes that all Chinese dialects share the same underlying syllable 
+structure. Rather than mora theory, he employs X-slots, positing three slots 
+under the syllable node: one for the onset and two for the rime. Zhu, however, 
+diverges from this proposal, offering a different analysis of syllable 
+structure in Shanghainese.
+
+\section{Proposal}
+In order to evaluate competing hypotheses about tonal representation, each 
+candidate model will be encoded as a graph-structured input, where the nodes 
+correspond to linguistic units (tones, syllables, moras, segments) and the 
+edges represent association relations among them. This graph-based encoding 
+provides a flexible way to capture multi-linear structures such as pitch, 
+register, and segmental interactions simultaneously, avoiding the limitations 
+of strictly linear string representations.
+
+The learning component will adapt the Bottom-Up Factorial Inference Algorithm 
+(BUFIA; Chandlee et al. 2017) to operate over graph inputs. In this framework, 
+the algorithm takes a corpus of graph-structured forms as input and 
+incrementally identifies inviolable subgraphs that recur across well-formed 
+data. These subgraphs serve as the building blocks of the induced grammar, 
+allowing the system to generalize from the observed data to novel forms.
+
+By using graphs as the basic representational units, BUFIA-AR (Autosegmental 
+Representation) can directly encode multi-tier information—such as the 
+alignment of register with onset or word-level domains, or the distribution of 
+pitch features across syllables. This makes it possible to systematically 
+compare representational hypotheses: if a representation captures the relevant 
+generalizations effectively, the algorithm should converge on a compact, 
+restrictive grammar. Conversely, if a representation fails to encode the right 
+dependencies, the resulting grammar will either overgenerate or require 
+unnecessary complexity.
 
 \begin{figure}[h!]
 	\centering
