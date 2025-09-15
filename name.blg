@@ -1,0 +1,55 @@
+This is BibTeX, Version 0.99d (TeX Live 2024)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: name.aux
+The style file: apalike.bst
+Database file #1: refs.bib
+Repeated entry---line 1091 of file refs.bib
+ : @article{duanmu1999metrical
+ :                            ,
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 1812 of file refs.bib
+ :  title = {Autosegmental} 
+ :                          {Input} {Strictly} {Local} {Functions},
+I'm skipping whatever remains of this entry
+You've used 11 entries,
+            1935 wiz_defined-function locations,
+            544 strings with 5203 characters,
+and the built_in function-call counts, 3916 in all, are:
+= -- 400
+> -- 117
+< -- 14
++ -- 42
+- -- 34
+* -- 291
+:= -- 688
+add.period$ -- 35
+call.type$ -- 11
+change.case$ -- 68
+chr.to.int$ -- 11
+cite$ -- 11
+duplicate$ -- 168
+empty$ -- 286
+format.name$ -- 53
+if$ -- 779
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 8
+newline$ -- 57
+num.names$ -- 37
+pop$ -- 53
+preamble$ -- 1
+purify$ -- 70
+quote$ -- 0
+skip$ -- 138
+stack$ -- 0
+substring$ -- 267
+swap$ -- 28
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 64
+warning$ -- 0
+while$ -- 36
+width$ -- 0
+write$ -- 145
+(There were 2 error messages)

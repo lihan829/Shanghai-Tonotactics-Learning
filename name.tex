@@ -3,99 +3,172 @@
 \title{Register and Representation of Shanghai Chinese}
 \begin{document}
 \maketitle
-The tonal system in Shanghai are mainly divided into 5 tone system. there is not a consistent transctiption of tones caus they are in different representaing system: letter and number transcription. 
 
-\begin{table}[htbp]
+Shanghainese (Shanghai Chinese) is a variety of Wu Chinese spoken in Shanghai. 
+It has long served as an important case for illustrating the interaction 
+between tone and segmental features. Despite being relatively well studied, 
+Shanghainese still presents a number of long-standing, unresolved debates 
+concerning the behavior and representation of its tones. One of the central 
+debates concerns the representation of register. 
+\citet{yip1980}. Murmur is a phonetic manifestation of register: in addition to 
+the usual pitch lowering, it is accompanied by breathy voice. Previous research 
+differs on where register should be located within tonal geometry. Two 
+competing views exist: one treats register as a feature that dominates at the 
+word level, while the other treats it as a feature associated with the voicing 
+node of a segment.
+
+This paper is motivated by that question and has two goals. First, we provide a 
+more rigorous mathematical framework to model these two approaches, allowing 
+for a precise comparison of their predictive power and expressiveness. 
+Second, we employ computational methods to learn the tonotactics of 
+Shanghainese under both representational assumptions, comparing the learning 
+results to evaluate their relative outcomes.
+
+
+\section{Shanghai Tonology}
+
+Shanghai Chinese has five tones (T1–T5). Previous research has shown a variety 
+of transcription systems for these tones, whether using the five-point scale 
+notation \citep{chao1930system} or more phonologically oriented representations 
+indicating tonal height \citep{yip1980}. These systems largely converge on the 
+overall contour shapes but differ in the precise pitch value of tonal onsets 
+and offsets. 
+
+\input{transcriptions.tex}
+
+The Shanghai tonal system is regarded as a \textit{complex} system. Unlike 
+Mandarin, in which tonal contrasts are primarily distinguished by pitch, tonal 
+recognition in Shanghai Chinese also relies on \textit{register }and vowel 
+\textit{length} \citep{zhu+2015tone}. As shown in Figure~\ref{tab:shanghai}, 
+there are two registers \textsc{[upper]} (discussed in detail in the next 
+section), and two major syllable types: slack syllables and checked syllables 
+(those closed by a glottal stop). The following section will focus on previous 
+studies of register and length contrasts in Shanghai tonology.
+
+\input{tonology}
+\subsection{Register}
+Register is the primary distinction in Shanghai tones. Although it is often 
+associated with overall pitch shift cross-linguistically, in Shanghainese, a 
+lower register is also accompanied by breathy phonation. \citet{yip1980} 
+classifies Shanghai syllables into murmured and clear (or plain) types, with 
+murmured syllables corresponding to those that co-occur with the [–upper] 
+register. Murmur can thus be 
+understood as the phonetic realization of Shanghai register 
+\citep{zhu1999shanghai}. The terminology for this feature varies across 
+researchers, including [slack] \citep{duanmu1999metrical}, [+voice] (Ren, ???), 
+and [spread glottis] (Keating, as cited in \citealt{yip1993tonal}). For 
+consistency, this paper will use the term register, with the understanding that 
+it refers not only to pitch lowering but also to breathy phonation.
+
+Figure~\ref{tab:shanghai} shows that all syllables with voiced obstruents 
+onsets fall neatly under the [–upper] register. This is why register is often 
+regarded as a feature of voicing. For syllables beginning with sonorants, 
+however, both registers are possible and contrast with each other. Two points 
+should be noted in the phonetic realization of register. First, in monosyllabic 
+words, the [–upper] register, even when restricted to voiced obstruents, causes 
+devoicing of these segments (e.g., [d] $\rightarrow$ [d̥]), nearly neutralizing 
+the VOT distinction between voiced and voiceless unaspirated stops. This 
+distinction is retained when the syllable occurs in a non-initial position. 
+Second, in polysyllabic words, only the register of the initial syllable is 
+realized on the surface, and will also dominate the whole phrase and change the 
+voicing of the following consonants\todo{give some examples}.
+
+\subsection{Representation of Shanghai Tones}
+Since the register is a major distinction in shanghai tonology, many models of 
+shanghai tones have been proposed based on feature geometry 
+\citep{sagey1986feature}, where the most detbaitng come from where
+the resgiter should locate. 
+
+\citet{yip1993tonal} propose three possible candidates for the representation 
+of register: (i) a laryngeal feature \textsc{[voice, +spread glottis]}, (ii) a 
+tonal feature \textsc{[-upper]}, or (iii) a feature that has affinities with 
+both tonal and laryngeal nodes. Each option has consequences. (i) directly 
+predicts that murmur correlates with onset voicing, but fails to explain the 
+deletion of murmur in non-initial syllables. This gap is addressed by (ii), 
+which can capture murmur deletion, but does not explain why [+upper] should 
+condition onset voicing. In light of this, Yip proposes that murmur should be 
+analyzed as a hybrid feature, sharing properties of both laryngeal and tonal 
+domains. This view, however, is challenged by \citet{zhu1999shanghai}, who 
+observes that syllable-initial voiced obstruents are sometimes realized as 
+voiceless (see also \citet{chen2015shanghai}).
+
+Building on Bao’s model, Duanmu proposes that register is consistently reflected in voice quality but not always in pitch. His model treats pitch and register as two planes: one plane encodes the stiff/slack distinction in voice quality, while the other contains tonal features. Similarly, Ren (1992) treats murmur as a feature associated with the initial consonant.
+
+Another issue in the feature geometry of Shanghainese concerns the representation of medial and coda positions. Beyond the placement of register, scholars also debate how the syllable should be internally structured. Duanmu proposes that all Chinese dialects share the same underlying syllable structure. Rather than mora theory, he employs X-slots, positing three slots under the syllable node: one for the onset and two for the rime. Zhu, however, diverges from this proposal, offering a different analysis of syllable structure in Shanghainese.
+
+
+
+\begin{figure}[h!]
 	\centering
-	\begin{tabular}{cccccccccc}
-		\toprule
-		\textbf{Tone} & HKSU &XTQ& SY  & \citet{duanmu1999metrical} &  \citet{zee1979tones}  & Chen  & Lim  &  \\ \midrule
-		     \cellcolor{gray}{T1}       &   53   & 53&/HL/ &  /H/   & /MH/ & /MH/  & /LH/ &  \\
-		     T2       &   34   & 24&/LH/ &  /L/   & /LH/ & /LH/  & /LH/ &  \\
-		     T3       &   23   & 13&/LH/ &  /L/   & /MH/ & /Hq/  & /H/  &  \\
-		     T4       &   5    & \emph{55}&/LH/ &  /L/   & /LM/ & /LMq/ & /LH/ &  \\
-		     T5       &   12   & \emph{13}&/LH/ &  /L/   & /HL/ & /HL/  & /HL/ &  \\ \bottomrule
-	\end{tabular}
-\end{table}
+	\begin{tikzpicture}[-,shorten >=1pt]
+		\tikzstyle{state}=[fill=white,draw=black,text=black,node distance=16mm]
+		
+		% First graph (on the left)
+		\node (tbu) at (1.5,0) {TBU};
+		\node (R) at (.5,-1) {V/R};
+		\node (P) at (2.5,-1) {Pitch};
+		\node (r1) at (0,-2) {[slack]};
+		\node (r2) at (1.2,-2) {[stiff]};
+		\node (p1) at (2,-2) {[above]};
+		\node (p2) at (3,-2) {[below]};
+		\draw (tbu) -> (R) -> (r1);
+		\draw (tbu) -> (R) -> (r2);
+		\draw (tbu) -> (P) -> (p1);
+		\draw (tbu) -> (P) -> (p2);
+		
+		
+		% Second graph (shifted right)
+		\begin{scope}[xshift=8cm]
+			\node (sS) at (0,0) {S};
+			\node (o) at (-1,-1) {O};
+			\node (r) at (0.5,-1) {R};
+			\node (x1) at (-1,-2) {X};
+			\node (x2) at (0,-2) {X};
+			\node (x3) at (1,-2) {X};
+			\draw (sS) -> (o) -> (x1);
+			\draw (sS) -> (r) -> (x2);
+			\draw (r) -> (x3);
+		\end{scope}
+		
+		% Cross edges from TBU to Xs
+		\draw[dashed] (tbu) .. controls +(3,-1) and +(-2,1) .. (x1);
+		\draw[dashed] (tbu) .. controls +(4,-1) and +(-1,1) .. (x2);
+		\draw[dashed] (tbu) .. controls +(5,-1) and +(0,1) .. (x3);
+		
+	\end{tikzpicture}
+\end{figure}
 
-\begin{table}[h!]
-    \centering
-    \begin{tabular}{ccccccccc}
-        \toprule
-        \multirow{2}{*}{\textbf{Register}} & \multirow{2}{*}{\textbf{Tone}} 
-            & \multicolumn{3}{c}{Slack syllable} & & \multicolumn{3}{c}{Checked syllable} \\ 
-        \cmidrule{3-5}\cmidrule{7-9}
-         &  & \textbf{TV(\ng)} & \textbf{DV(\ng)} & \textbf{SV(\ng)} & & \textbf{TV\textglotstop} & \textbf{DV\textglotstop} & \textbf{SV\textglotstop} \\
-        \midrule
-        \multirow{3}{*}{\textbf{+upper}} 
-            & \textbf{T1} & pa ``father'' & \texttimes & ma ``mother'' & & \texttimes & \texttimes & \texttimes \\
-            & \textbf{T2} & pa ``dam''    & \texttimes & me ``pretty'' & & \texttimes & \texttimes & \texttimes \\
-            & \textbf{T4} & \texttimes & \texttimes & \texttimes & & paʔ ``eight'' & \texttimes & aʔ ``duck'' \\
-        \midrule
-        \multirow{2}{*}{\textbf{-upper}} 
-            & \textbf{T3} & \texttimes & ba ``climb'' & ma ``horse'' & & \texttimes & \texttimes & \texttimes \\
-            & \textbf{T5} & \texttimes & \texttimes & \texttimes & & \texttimes & baʔ ``white'' & maʔ ``pulse'' \\
-        \bottomrule
-    \end{tabular}
-    \caption{Co-occurrence restrictions on tones with consonants \citep{chen2015shanghai}.}
-    \label{tab:shanghai}
-\end{table}
-The first factor differentiates Shanghainese tones into murmured vs. clear (or plain) syllables, a phonological manifestation of register \citep{yip1980}. Terminology varies across traditions: classical Chinese phonology contrasts yin and yang registers; Yip uses +murmur or +upper; Duanmu employs \textsc{[+slack]}; and Keating refers to it as \textsc{[+spread glottis]}. Functionally, this feature introduces two characteristics into tonal realization: a lowered pitch and a breathy voice quality. Consequently, murmured syllables tend to begin with a low pitch and occur only with voiced onsets. In contrast, clear syllables (T1, T2, T4) start with a relatively high pitch; when the onset is an obstruent, it is obligatorily voiceless. Syllables with sonorant onsets, however, are not affected by this register distinction.
-
-The second dichotomy concerns the post-vocalic state. When a syllable is closed by a glottal stop, it is termed a checked syllable. Checked syllables are characterized by shorter vowel duration, a sharper pitch contour, and a glottal constriction at the coda. In Shanghainese, this condition restricts the distribution of certain tones (e.g., T4 and T5), as shown in the table. By contrast, unchecked (or “slack”) syllables allow for longer vowels and smoother tonal contours.
-
-
-
-Previous research offers divergent descriptions of what ``murmur'' entails. There are following proposals and their corresponding representations:
-\begin{enumerate}
-    \item It is a tonal feature underlyingly shared by larnygeal \citep{yip1993tonal}
-    \item It is a property of the \textit{onset} and conditioned by [+voice] (Duanmu 1988)
-    \item It is a feature of the \textit{initial consonant} (Ren 1992).  
-    \item It is a property of the \textit{phonological word} \citep{zhu1999shanghai}
-\end{enumerate}
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}[-,shorten >=1pt]
+		\tikzstyle{state}=[fill=white,draw=black,text=black,node distance=16mm]
+		
+		\node (w) at (0,1) {w};
+		\node (re) at (2,1) {[upper]};
+		\node (s) at (0,0) {S};
+		\node (o) at (-1,-1) {O};
+		\node (r) at (0.5,-1) {R};
+		\node (T) at (2.5,-1) {T};
+		\node (t1) at (2.0,-2) {L};
+		\node (t2) at (3,-2) {H};
+		
+		\node (x1) at (-1,-2) {X};
+		\node (x2) at (0,-2) {Nu};
+		\node (x3) at (1,-2) {Co};
+		\node (m1) at (0,-3) {$\mu$};
+		\node (m2) at (1,-3) {$\mu$};
+		\draw (w) -> (s);
+		\draw (T) -> (t1);
+		\draw (T) -> (t2);
+		\draw (s) -> (o) -> (x1) ;
+		\draw (s) -> (r) -> (x2) -> (m1);
+		\draw (r) -> (x3) -> (m2);
+		\draw [dotted](r) -> (T);
+		\draw [dotted](w) -> (re);
+	\end{tikzpicture}
+\end{figure}
 
 
-\citep{yipsniderPhonologyTone1993} proposes three possible candidates where register could either be a laryngeal feature \textsc{[voice, +spread glottis]}, a tonal feature \textsc{[-upper]} or a feature with afgfinities to bothe tonal aand larynegeal nodes. Of these candidates, (I) directly predicts that murmur predicts the onset voicing but impoosible to explain the deletation of murmur in no-iunitial syllables, this can be accounted by (ii) but it doesnt reval the why upper should condition onset voicing. In this case, Yip proposes that the murmur is a feature which partakes both characterialsices. This is argued agaisnt by \citep{zhu1999shanghai} who points out that in the realization, the syllable-initialed voiced obstruent is sometimes voiceless, (see also in \citep{chen2015shanghai}).
-
-
-Duanmu, based on Bao's model, proposes that the Register is always reflected by voice quality but not always by pitch. The model then he proposes is that pitch and refgister are two planes, while the first one dominiates stiff and slack voice quality, the second one contails tones. 
-
-\begin{enumerate}
-    \item coda
-    \item part of rime and shares the mora with the vowel
-\end{enumerate}
-\begin{tikzpicture}[-,shorten >=1pt]
-    \tikzstyle{state}=[fill=white,draw=black,text=black,node distance=16mm]
-
-    \node (s1) at (0,0) {[+upper]};
-    \node[circle, draw, fill=black, inner sep=2pt,
-    label=above right:Tonal Node Root] (s2) at (0,-1) {}; % small filled circle
-    \node (T1)  at (-1,-2) {L};
-    \node (T2) at (1,-2) {H};
-
-    \draw (s1) -> (s2);
-    \draw (s2) -> (T1);
-    \draw (s2) -> (T2);
-\end{tikzpicture}
-
-    
-\begin{tikzpicture}[-,shorten >=1pt]
-    \tikzstyle{state}=[fill=white,draw=black,text=black,node distance=16mm]
-
-    \node (s1) at (0,0) {TBU};
-    \node[circle, draw, fill=white, inner sep=2pt] (s2) at (0,-1) {}; % small filled circle
-    \node (T1) at (-1.5,-2) {Register};
-    \node (T2) at (1.5,-2) {Pitch};
-    \node (p1) at (2,-3) {above};
-    \node (p2) at (1,-3) {below};
-    \node (r1) at (-2,-3) {slack};
-    \node (r2) at (-1,-3) {stiff};
-    \draw (s1) -> (s2);
-    \draw (s2) -> (T1) -> (r1);
-    \draw (s2) -> (T1) -> (r2);
-    \draw (s2) -> (T2) -> (p1);
-    \draw  (T2) -> (p2);
-\end{tikzpicture}
 
 \bibliography{refs.bib}
 \bibliographystyle{apalike}
