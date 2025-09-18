@@ -211,3 +211,7 @@ name.pdf
 *.blg
 *.out
 *.gz
+name.pdf
+name.synctex.gz
+*.gz
+*.gz

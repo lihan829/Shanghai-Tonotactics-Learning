@@ -124,40 +124,26 @@ diverges from this proposal, offering a different analysis of syllable
 structure in Shanghainese.
 
 \section{Proposal}
-There are four goals of this paper. First, we would like to compare
-In this paper, I compare two competing theories from \citet{duanmu1988}
-and \citet{zhu1999shanghai} from a learning perspective. The reason for 
-choosing these two models are due the fact that the syllabic structures
-that underlie these two models are comparable and clearly porposed, 
-the register and pitch nodes can be embeded in at different level of
-structure. Besides, these two models are indeed distinct both representationally
-and mathmatically. \citet{oakdenNotationalEquivalenceTonal2020} points out
-that the long-standing competing theorys between Bao and Yips models are 
-in essence equavilent: they do not differet in their empritcal exsirevity 
-and they can be translatable into each other without losing nescary contrasts. 
-This will be expalined in Section xxx. Each model is represented model-theoretically 
-so that all relations within each model, such as association, succession, and dominance, are rigorously captured.
+There are four goals of this paper. First, I compare two competing theories 
+from \citet{duanmu1988} and \citet{zhu1999shanghai} from a learning perspective. 
+These two models are chosen because their underlying syllabic structures are 
+both comparable and explicitly formulated, and because register and pitch nodes 
+are embedded at different levels of structure in each model. Moreover, the models 
+are distinct both representationally and mathematically. In contrast, 
+\citet{oakdenNotationalEquivalenceTonal2020} argues that the long-standing competition 
+between Bao’s and Yip’s models are notationally equivalent and translatable into each 
+other without loss of contrast. This distinction will be discussed further in Section XXX.
 
+Each model is represented in model-theoretic terms so that relations such as association, 
+succession, and dominance are rigorously encoded. Learning is carried out using the Bottom-Up 
+Factorial Inference Algorithm (BUFIA; \citet{chandleeBufia2019}), which operates over model-theoretic 
+inputs based on the two representations.
 
+Our learning goals have two components. First, we examine tonotactics: the co-occurrence 
+patterns between tones and features (register or voicing). We run BUFIA on both representational models, testing them on monosyllabic and disyllabic forms, to evaluate which model more effectively captures these patterns, particularly the agreement between voicing and tone.
 
-Learning is carried out using the Bottom-Up Factorial Inference Algorithm 
-(BUFIA; \citet{chandleeBufia2019}), which operates over model-theoretic inputs 
-encoded based on the two models. Our learning goals have two components:
-
-\begin{enumerate}
-	\item Tonotactics: the co-occurrence patterns between tones and features\\
-
-	\item Register/voicing assimilation: the rules governing disyllabic compounds.
-	
-\end{enumerate}
-
-The central question is which representational hypothesis captures the relevant 
-generalizations more effectively in tonotactics and register assimilation processes. 
-Conversely, if a representation fails to encode the appropriate dependencies, 
-the learning resulting over such representation will either overgenerate, 
-undergenerate, or produce empirically unattested predictions.
-
-
+Register/voicing assimilation: the rules governing disyllabic compounds.
+The central question is which representational hypothesis best captures the relevant generalizations in both tonotactics and register assimilation. Conversely, if a representation fails to encode the appropriate dependencies, learning over such a representation will either overgenerate, undergenerate, or yield predictions that are empirically unattested.
 
 
 \section{Five Tones in Shanghai}
