@@ -15,46 +15,50 @@ I was expecting a `,' or a `}'---line 1812 of file refs.bib
  :  title = {Autosegmental} 
  :                          {Input} {Strictly} {Local} {Functions},
 I'm skipping whatever remains of this entry
+Repeated entry---line 1839 of file refs.bib
+ : @article{oakdenNotationalEquivalenceTonal2020
+ :                                              ,
+I'm skipping whatever remains of this entry
 Warning--I didn't find a database entry for "yip1980"
-You've used 15 entries,
+You've used 17 entries,
             1935 wiz_defined-function locations,
-            564 strings with 5585 characters,
-and the built_in function-call counts, 5281 in all, are:
-= -- 538
-> -- 153
-< -- 19
-+ -- 58
-- -- 44
-* -- 382
-:= -- 930
-add.period$ -- 48
-call.type$ -- 15
-change.case$ -- 91
-chr.to.int$ -- 15
-cite$ -- 15
-duplicate$ -- 233
-empty$ -- 388
-format.name$ -- 67
-if$ -- 1053
+            578 strings with 5978 characters,
+and the built_in function-call counts, 6224 in all, are:
+= -- 633
+> -- 188
+< -- 21
++ -- 70
+- -- 56
+* -- 459
+:= -- 1083
+add.period$ -- 54
+call.type$ -- 17
+change.case$ -- 107
+chr.to.int$ -- 17
+cite$ -- 17
+duplicate$ -- 272
+empty$ -- 458
+format.name$ -- 81
+if$ -- 1246
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 11
-newline$ -- 77
-num.names$ -- 51
-pop$ -- 76
+missing$ -- 13
+newline$ -- 87
+num.names$ -- 57
+pop$ -- 93
 preamble$ -- 1
-purify$ -- 94
+purify$ -- 110
 quote$ -- 0
-skip$ -- 189
+skip$ -- 218
 stack$ -- 0
-substring$ -- 353
-swap$ -- 41
-text.length$ -- 4
+substring$ -- 429
+swap$ -- 50
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 86
+type$ -- 98
 warning$ -- 0
-while$ -- 48
+while$ -- 57
 width$ -- 0
-write$ -- 200
-(There were 3 error messages)
+write$ -- 226
+(There were 4 error messages)

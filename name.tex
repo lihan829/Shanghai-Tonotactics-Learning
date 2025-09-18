@@ -124,62 +124,56 @@ diverges from this proposal, offering a different analysis of syllable
 structure in Shanghainese.
 
 \section{Proposal}
-In order to evaluate competing hypotheses about tonal representation, each 
-candidate model will be encoded as a graph-structured input, where the nodes 
-correspond to linguistic units (tones, syllables, moras, segments) and the 
-edges represent association relations among them. This graph-based encoding 
-provides a flexible way to capture multi-linear structures such as pitch, 
-register, and segmental interactions simultaneously, avoiding the limitations 
-of strictly linear string representations.
+There are four goals of this paper. First, we would like to compare
+In this paper, I compare two competing theories from \citet{duanmu1988}
+and \citet{zhu1999shanghai} from a learning perspective. The reason for 
+choosing these two models are due the fact that the syllabic structures
+that underlie these two models are comparable and clearly porposed, 
+the register and pitch nodes can be embeded in at different level of
+structure. Besides, these two models are indeed distinct both representationally
+and mathmatically. \citet{oakdenNotationalEquivalenceTonal2020} points out
+that the long-standing competing theorys between Bao and Yips models are 
+in essence equavilent: they do not differet in their empritcal exsirevity 
+and they can be translatable into each other without losing nescary contrasts. 
+This will be expalined in Section xxx. Each model is represented model-theoretically 
+so that all relations within each model, such as association, succession, and dominance, are rigorously captured.
 
-The learning component will adapt the Bottom-Up Factorial Inference Algorithm 
-(BUFIA; Chandlee et al. 2017) to operate over graph inputs. In this framework, 
-the algorithm takes a corpus of graph-structured forms as input and 
-incrementally identifies inviolable subgraphs that recur across well-formed 
-data. These subgraphs serve as the building blocks of the induced grammar, 
-allowing the system to generalize from the observed data to novel forms.
 
-By using graphs as the basic representational units, BUFIA-AR (Autosegmental 
-Representation) can directly encode multi-tier information—such as the 
-alignment of register with onset or word-level domains, or the distribution of 
-pitch features across syllables. This makes it possible to systematically 
-compare representational hypotheses: if a representation captures the relevant 
-generalizations effectively, the algorithm should converge on a compact, 
-restrictive grammar. Conversely, if a representation fails to encode the right 
-dependencies, the resulting grammar will either overgenerate or require 
-unnecessary complexity.
 
-\begin{figure}[h!]
+Learning is carried out using the Bottom-Up Factorial Inference Algorithm 
+(BUFIA; \citet{chandleeBufia2019}), which operates over model-theoretic inputs 
+encoded based on the two models. Our learning goals have two components:
+
+\begin{enumerate}
+	\item Tonotactics: the co-occurrence patterns between tones and features\\
+
+	\item Register/voicing assimilation: the rules governing disyllabic compounds.
+	
+\end{enumerate}
+
+The central question is which representational hypothesis captures the relevant 
+generalizations more effectively in tonotactics and register assimilation processes. 
+Conversely, if a representation fails to encode the appropriate dependencies, 
+the learning resulting over such representation will either overgenerate, 
+undergenerate, or produce empirically unattested predictions.
+
+
+
+
+\section{Five Tones in Shanghai}
+\begin{table}[h!]
 	\centering
-	\begin{tikzpicture}[-,shorten >=1pt]
-		\tikzstyle{state}=[fill=white,draw=black,text=black,node distance=16mm]
-		
-		\node (w) at (0,1) {w};
-		\node (re) at (2,1) {[upper]};
-		\node (s) at (0,0) {S};
-		\node (o) at (-1,-1) {O};
-		\node (r) at (0.5,-1) {R};
-		\node (T) at (2.5,-1) {T};
-		\node (t1) at (2.0,-2) {L};
-		\node (t2) at (3,-2) {H};
-		
-		\node (x1) at (-1,-2) {X};
-		\node (x2) at (0,-2) {Nu};
-		\node (x3) at (1,-2) {Co};
-		\node (m1) at (0,-3) {$\mu$};
-		\node (m2) at (1,-3) {$\mu$};
-		\draw (w) -> (s);
-		\draw (T) -> (t1);
-		\draw (T) -> (t2);
-		\draw (s) -> (o) -> (x1) ;
-		\draw (s) -> (r) -> (x2) -> (m1);
-		\draw (r) -> (x3) -> (m2);
-		\draw [dotted](r) -> (T);
-		\draw [dotted](w) -> (re);
-	\end{tikzpicture}
-\end{figure}
-
-
+	\caption{Phonological features of the five Shanghai tones (\citep{zhu1999shanghai})} 
+	\begin{tabular}{lccccc}
+		\toprule
+		\textbf{Tones} & \textbf{T1} & \textbf{T2} & \textbf{T3} & \textbf{T4} & \textbf{T5} \\
+		\midrule
+		Register   & +U & +U & -U & +U & -U \\
+		Truncation & P  & P  & P  & q  & q  \\
+		Contour    & hl & lh & lh & lh & lh \\
+		\bottomrule
+	\end{tabular}
+\end{table}
 
 \bibliography{refs.bib}
 \bibliographystyle{apalike}

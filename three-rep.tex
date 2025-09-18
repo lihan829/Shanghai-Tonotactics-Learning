@@ -40,21 +40,31 @@
 		\draw[dashed] (tbu) .. controls +(3,-1) and +(0,0) .. (x3);
 	\end{tikzpicture}
 	\hfill
-	\begin{tikzpicture}
-		\node (w) at (0,1) {Word};
-		\node (re) at (0,2) {\textbf{Register}};
-		\node (s) at (0,0) {$\sigma$};
-		\node (o) at (-1,-1) {Onset};
-		\node (r) at (1,-1) {Rime};
-		\node (T) at (2.5,-1) {\textbf{Pitch}};
+	\begin{tikzpicture}[-,shorten >=1pt]
+		\tikzstyle{state}=[fill=white,draw=black,text=black,node distance=16mm]
+		
+		\node (w) at (0,1) {w};
+		\node (re) at (2,1) {\textbf{Register}};
+		\node (s) at (0,0) {S};
+		\node (o) at (-1,-1) {O};
+		\node (r) at (0.5,-1) {R};
+		\node (T) at (2.5,-1) {T};
 		\node (t1) at (2.0,-2) {L};
 		\node (t2) at (3,-2) {H};
-		\draw (w) -> (s) -> (o);
-		\draw (s) -> (r);
+		
+		\node (x1) at (-1,-2) {X};
+		\node (x2) at (0,-2) {Nu};
+		\node (x3) at (1,-2) {Co};
+		\node (m1) at (0,-3) {$\mu$};
+		\node (m2) at (1,-3) {$\mu$};
+		\draw (w) -> (s);
 		\draw (T) -> (t1);
 		\draw (T) -> (t2);
-		\draw (r) -> (T);
-		\draw (w) -> (re);
+		\draw (s) -> (o) -> (x1) ;
+		\draw (s) -> (r) -> (x2) -> (m1);
+		\draw (r) -> (x3) -> (m2);
+		\draw [dotted](r) -> (T);
+		\draw [dotted](w) -> (re);
 	\end{tikzpicture}
 	\label{three-rep}
 \end{figure}
