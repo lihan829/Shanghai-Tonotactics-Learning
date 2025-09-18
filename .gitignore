@@ -215,3 +215,6 @@ name.pdf
 name.synctex.gz
 *.gz
 *.gz
+name.aux
+name.out
+name.synctex.gz

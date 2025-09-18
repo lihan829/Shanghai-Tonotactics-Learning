@@ -143,10 +143,64 @@ Our learning goals have two components. First, we examine tonotactics: the co-oc
 patterns between tones and features (register or voicing). We run BUFIA on both representational models, testing them on monosyllabic and disyllabic forms, to evaluate which model more effectively captures these patterns, particularly the agreement between voicing and tone.
 
 Register/voicing assimilation: the rules governing disyllabic compounds.
-The central question is which representational hypothesis best captures the relevant generalizations in both tonotactics and register assimilation. Conversely, if a representation fails to encode the appropriate dependencies, learning over such a representation will either overgenerate, undergenerate, or yield predictions that are empirically unattested.
+The central question is which representational hypothesis best captures the relevant generalizations in both tonotactics and register assimilation. Conversely, if a representation fails to encode the appropriate dependencies, learning over such a representation will either over generate, under generate, or yield predictions that are empirically unattested.
+
+\section{Graphic Model of Feature Geomtery}
+Here we want to provide a more explciic terms for the features tiers. To start, we give formal definition of three
+relations that used in feature geomtery.
+1. succoror
+2. association
+3. dominace
+
+- tier: Goldsmith (1976) defines a tier (which he called “levels”) as a totally ordered  sequence of elements ai1ai2...ain, where i is the index for tier L. Here we assume if two nodes a and b are on the same tier, then they will obey succors realtion
+
+- node/root: they canno
+- 
+\begin{tikzpicture}
+
+		\node (sS) at (0,0) {S};
+		\node (o) at (-1,-1) {O};
+		\node (r) at (0.5,-1) {R};
+		\node (x1) at (-1,-2) {x};
+		\node (x2) at (0,-2) {x};
+		\node (x3) at (1,-2) {x};
+		\draw (sS) -> (o) -> (x1);
+		\draw (sS) -> (r) -> (x2);
+		\draw (r) -> (x3);
+\end{tikzpicture}
+\hfill
+\begin{tikzpicture}[-,shorten >=1pt]
+	\tikzstyle{state}=[fill=white,draw=black,text=black,node distance=16mm]
+	
+	\node (w) at (-1,1) {w};
+	\node (re) at (2,1) {\textbf{Register}};
+	\node (s) at (-1,0) {S};
+	\node (r) at (0,-1) {R};
+	\node (T) at (2.5,-1) {\textbf{Pitch}};
+	\node (t1) at (2.0,-2) {L};
+	\node (t2) at (3,-2) {H};
+	
+
+	\node (o) at (-2,-1) {O};
+	\node (m) at (-1,-1) {M};
+	\node (x2) at (0,-2) {Nu};
+	\node (x3) at (1,-2) {Co};
+	\node (m1) at (0,-3) {$\mu$};
+	\node (m2) at (1,-3) {$\mu$};
+	\draw (w) -> (s);
+	\draw (T) -> (t1);
+	\draw (T) -> (t2);
+	\draw (s) -> (m);
+	\draw (s) -> (o);
+	\draw (s) -> (r) -> (x2) -> (m1);
+	\draw (r) -> (x3) -> (m2);
+	\draw [dotted](r) -> (T);
+	\draw [dotted](w) -> (re);
+\end{tikzpicture}
 
 
 \section{Five Tones in Shanghai}
+
 \begin{table}[h!]
 	\centering
 	\caption{Phonological features of the five Shanghai tones (\citep{zhu1999shanghai})} 
@@ -160,6 +214,7 @@ The central question is which representational hypothesis best captures the rele
 		\bottomrule
 	\end{tabular}
 \end{table}
+
 
 \bibliography{refs.bib}
 \bibliographystyle{apalike}
