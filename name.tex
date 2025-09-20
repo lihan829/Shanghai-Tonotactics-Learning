@@ -145,35 +145,180 @@ patterns between tones and features (register or voicing). We run BUFIA on both 
 Register/voicing assimilation: the rules governing disyllabic compounds.
 The central question is which representational hypothesis best captures the relevant generalizations in both tonotactics and register assimilation. Conversely, if a representation fails to encode the appropriate dependencies, learning over such a representation will either over generate, under generate, or yield predictions that are empirically unattested.
 
-\section{Graphic Model of Feature Geomtery}
+\section{Graphic Model of Feature Geometry}
+
 Here we want to provide a more explciic terms for the features tiers. To start, we give formal definition of three
 relations that used in feature geomtery.
-1. succoror
-2. association
-3. dominace
 
-- tier: Goldsmith (1976) defines a tier (which he called “levels”) as a totally ordered  sequence of elements ai1ai2...ain, where i is the index for tier L. Here we assume if two nodes a and b are on the same tier, then they will obey succors realtion
+- tier: Goldsmith (1976) defines a tier as a totally ordered  sequence of elements $a^i_j$ indicating the jth element on the ith level. Thus we have
+\(
+a^1_1a^1_2a^1_3a^1_4 \cdots
+a^2_1a^2_2a^2_3a^2_4 \cdots
+\)
 
-- node/root: they canno
-- 
-\begin{tikzpicture}
+\subsection*{Tiers and Relations}
 
-		\node (sS) at (0,0) {S};
-		\node (o) at (-1,-1) {O};
-		\node (r) at (0.5,-1) {R};
-		\node (x1) at (-1,-2) {x};
-		\node (x2) at (0,-2) {x};
-		\node (x3) at (1,-2) {x};
-		\draw (sS) -> (o) -> (x1);
-		\draw (sS) -> (r) -> (x2);
-		\draw (r) -> (x3);
+We assume a representation consisting of a \emph{skeletal tier}, feature tiers, and higher-level prosodic constituents. 
+Formally, let $X$ denote the set of skeletal positions (X-slots or moras). 
+We define three primitive relations on these positions:
+
+
+\subsection*{Tiers and Relations}
+
+We assume a representation consisting of a \emph{skeletal tier}, feature tiers, 
+and higher-level prosodic constituents. 
+
+
+Formally, let $X$ denote the set of skeletal positions (X-slots or moras). 
+We define three primitive relations on these positions:
+
+\begin{enumerate}
+    \item \textbf{Successor relation} $\mathsf{Succ}(x,y)$: \\
+    For $x,y \in X$, $\mathsf{Succ}(x,y)$ holds iff $y$ immediately follows $x$ on the skeletal tier. 
+    The transitive closure of $\mathsf{Succ}$ defines a total order $\leq$ over $X$:
+%    \[
+%       \forall x,y \in X \;\; (x \leq y \;\lor\; y \leq x).
+%    \]
+
+    \item \textbf{Dominance relation} $\mathsf{Dom}(x,N)$: \\
+    For $x \in X$ and a higher-level node $N$ (e.g.\ syllable, foot, word), 
+    $\mathsf{Dom}(x,N)$ holds iff $N$ dominates $x$. 
+    Dominance is transitive:
+%    \[
+%       \forall x,N,M \;\; (\mathsf{Dom}(x,N) \wedge \mathsf{Dom}(N,M) \;\rightarrow\; \mathsf{Dom}(x,M)).
+%    \]
+
+    \item \textbf{Association relation} $\mathsf{Assoc}(x,f)$: \\
+    For $x \in X$ and a feature element $f$ on some feature tier $T_F$, 
+    $\mathsf{Assoc}(x,f)$ holds iff $x$ is associated to $f$. 
+    Each feature tier $T_F$ forms a totally ordered set, and the order of $T_F$ 
+    respects the skeletal order:
+%    \[
+%       \forall x,y \in X \;\; \forall f,g \in T_F \;\; 
+%       (\mathsf{Assoc}(x,f) \wedge \mathsf{Assoc}(y,g) \wedge x < y \;\rightarrow\; f \leq g).
+%    \]
+\end{enumerate}
+
+In summary, skeletal elements participate in three fundamental relations: 
+successor, dominance, and association. 
+Successor (via its transitive closure) and dominance are transitive relations; 
+association is preserved with respect to the successor order of the skeletal tier.
+
+In summary, skeletal elements participate in three fundamental relations: successor, dominance, and association. 
+Successor (via its transitive closure) and dominance are transitive relations; association is preserved with respect to the successor order of the skeletal tier.
+
+Duanmu mentioned that only the Onset can get assigned a register and only the rime can assign pitch. 
+- since register dominates the nodes, we can replace the x with +st 
+\begin{tikzpicture}[
+  ->, 
+  node distance=1cm, 
+  every node/.style={circle, draw, inner sep=2pt}, 
+  re/.style={draw, rectangle, inner sep=2pt}
+]
+
+  % top nodes
+  \node (sS) {S};
+  \node (o) [below left=0.5cm and 0.3cm of sS] {O};
+  \node (r) [below right=0.5cm and 0.3cm of sS] {R};
+
+  % skeletal tier
+  \node (x1) [below=0.5cm of o] {x};
+  \node (x2) [right=0.5cm of x1] {x};
+  \node (x3) [right=0.5cm of x2] {x};
+  \coordinate (left)  at ($(x1)+(-.5,0)$);
+  \coordinate (right) at ($(x3)+(.5,0)$);
+
+  % REGISTER tier
+  \node (reg1) [below left =0.5cm of x1] {+st};
+  \node (reg2) [below left =0.5cm of x2] {-sl};
+  \node (reg3) [below left =0.5cm of x3] {+st};
+
+  % PITCH tier
+  \node (pit1) [below right =0.5cm and 2cm of reg1] {H};
+  \node (pit2) [below right =0.5cm and 2cm of reg2] {L};
+  \node (pit3) [below right =0.5cm and 2cm of reg3] {H};
+  
+  % connections
+  \draw (sS) -> (o) -> (x1);
+  \draw (sS) -> (r) -> (x2);
+  \draw (r) -> (x3);
+  \draw (left) -> (x1) -> (x2) -> (x3) -> (right);
+
+  % associations
+  \draw (x1) -> (reg1);
+  \draw (x2) -> (reg2);
+  \draw (x3) -> (reg3);
+
+  \draw (x1) -> (pit1);
+  \draw (x2) -> (pit2);
+  \draw (x3) -> (pit3);
+
+  % curved tier connections with labels
+  \draw (reg1) to[out=-30,in=-150] (reg2)
+        to[out=-30,in=-150] (reg3);
+
+  \draw (pit1) to[out=-30,in=-150] (pit2)
+        to[out=-30,in=-150] (pit3);
+
 \end{tikzpicture}
+
+
+\begin{tikzpicture}[
+  ->, 
+  node distance=1cm, 
+  every node/.style={circle, draw, inner sep=2pt}, 
+  re/.style={draw, rectangle, inner sep=2pt}
+]
+
+  % top nodes
+
+  \node (sS) {S};
+  \node (w) at ($(sS)+(0,1)$) {W};
+  \node (r) at ($(w)+(2,0)$) {+u};
+  \node (o) [below left=0.5cm and 0.3cm of sS] {O};
+  \node (r) [below right=0.5cm and 0.3cm of sS] {R};
+
+
+  % skeletal tier
+  \node (x1) [below=0.5cm of o] {x};
+  \node (x2) [right=0.5cm of x1] {x};
+  \node (x3) [right=0.5cm of x2] {x};
+  \coordinate (left)  at ($(x1)+(-.5,0)$);
+  \coordinate (right) at ($(x3)+(.5,0)$);
+
+  % REGISTER tier
+%  \node (reg1) at ($(x1)+(2,-1)$)  {+st};
+%  \node (reg2) [below left =0.5cm of x2] {-sl};
+%  \node (reg3) [below left =0.5cm of x3] {+st};
+
+  % PITCH tier
+  \node (pit1) at ($(r)+(2,0)$)  {H};
+  \node (pit2) at ($(pit1)+(1,0)$)  {L};
+%  \node (pit3) [below right =0.5cm and 2cm of reg3] {H};
+  
+  % connections
+  \draw (sS) -> (o) -> (x1);
+  \draw (sS) -> (r) -> (x2);
+  \draw (r) -> (x3);
+ 
+  % associations
+  \draw (x2) -> (pit1);
+  \draw (x3) -> (pit2);
+
+  % curved tier connections with labels
+
+  \draw (pit1) to[out=-30,in=-150] (pit2)
+        to[out=-30,in=-150] (pit3);
+
+\end{tikzpicture}
+
+
 \hfill
 \begin{tikzpicture}[-,shorten >=1pt]
 	\tikzstyle{state}=[fill=white,draw=black,text=black,node distance=16mm]
 	
 	\node (w) at (-1,1) {w};
-	\node (re) at (2,1) {\textbf{Register}};
+	\node (re) at (2,1.5) {\textbf{Register}};
 	\node (s) at (-1,0) {S};
 	\node (r) at (0,-1) {R};
 	\node (T) at (2.5,-1) {\textbf{Pitch}};
