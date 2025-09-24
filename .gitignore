@@ -221,3 +221,7 @@ name.synctex.gz
 name.pdf
 name.synctex.gz
 .DS_Store
+*.aux
+name.aux
+name.out
+name.pdf
