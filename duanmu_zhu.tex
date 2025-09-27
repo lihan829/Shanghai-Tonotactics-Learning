@@ -1,0 +1,108 @@
+
+\begin{tikzpicture}[
+	->, 
+	node distance=1cm, 
+	every node/.style={circle, draw, inner sep=2pt}, 
+	re/.style={draw, rectangle, inner sep=2pt}
+	]
+	
+	% top nodes
+	\node (sS) {S};
+	\node (o) [below left=0.5cm and 0.3cm of sS] {O};
+	\node (r) [below right=0.5cm and 0.3cm of sS] {R};
+	
+	% skeletal tier
+	\node (x1) [below=0.5cm of o] {x};
+	\node (x2) [right=0.5cm of x1] {x};
+	\node (x3) [right=0.5cm of x2] {x};
+	\coordinate (left)  at ($(x1)+(-.5,0)$);
+	\coordinate (right) at ($(x3)+(.5,0)$);
+	
+	% REGISTER tier
+	\node (reg1) [below left =0.5cm of x1] {+st};
+	%\node (reg2) [below left =0.5cm of x2] {-sl};
+	%	\node (reg3) [below left =0.5cm of x3] {+st};
+	
+	% PITCH tier
+
+	\node (pit2) [below right =0.5cm and 1cm of x2] {L};
+	\node (pit3) [below right =0.5cm and 1cm of x3] {H};
+	
+	% connections
+	\draw (sS) -> (o) -> (x1);
+	\draw (sS) -> (r) -> (x2);
+	\draw (r) -> (x3);
+	\draw (left) -> (x1) -> (x2) -> (x3) -> (right);
+	
+	% associations
+	\draw (x1) -> (reg1);
+	
+	
+	\draw (x2) -> (pit2);
+	\draw (x3) -> (pit3);
+	
+	% curved tier connections with labels
+	\draw (pit2)	to[out=-30,in=-150] (pit3);
+	
+\end{tikzpicture} \hfill
+\begin{tikzpicture}[
+	->, 
+	node distance=1cm, 
+	every node/.style={circle, draw}, 
+	re/.style={draw, rectangle, inner sep=2pt}
+	]
+	
+	% top nodes
+	\node (s) {S};
+	\node (up) [above =0.5 of s]{+u};
+	\node (o) [below left=0.5cm and 0.3cm of s] {O};
+	\node (r) [below right=0.5cm and 0.3cm of s] {R};
+	
+	% skeletal tier
+	\node (x1) [below=0.5cm of o] {x};
+	\node (x2) [right=0.5cm of x1] {$\mu_1$};
+	\node (x3) [right=0.5cm of x2] {$\mu_2$};
+		\node (v1) [below=0.5cm of x2] {vol};
+				\node (v2) [below=0.5cm of x3] {vol};
+					\node (c) [left=0.5cm of v1] {cons};
+	\coordinate (left)  at ($(x1)+(-.5,0)$);
+	\coordinate (right) at ($(x3)+(.5,0)$);
+	
+	% PITCH tier
+	\node (pit1) at ($(r)+(2,0)$)  {H};
+	\node (pit2) at ($(pit1)+(1,0)$)  {L};
+	%  \node (pit3) [below right =0.5cm and 2cm of reg3] {H};
+		\draw (left) -> (x1) -> (x2) -> (x3) -> (right);
+	% connections
+	\draw (w) -> (s);
+	\draw (s) -> (o) -> (x1);
+	\draw (s) -> (r) -> (x2);
+	\draw (r) -> (x3);
+	\draw (r) -> (pit1); 
+	
+	% curved tier connections with labels
+	
+	\draw (pit1) to[out=-30,in=-150] (pit2);
+	
+\end{tikzpicture}\hfill
+\begin{tabular}{|c|c|}
+	\hline
+	Duanmu & Zhu \\
+	\hline
+$P_s$	&  $P_s$\\
+$P_O$	&  $P_O$\\
+$P_R$	&  $P_R$\\
+$P_{x1}$	&  $P_c$\\
+$P_{x2}$	&  $P_{\mu_1}$\\
+$P_{x2}$	&  $P_{\mu_2}$\\
+$P_{st}$	&  $P_{upper}$\\
+$P_{H}$	&  $P_{H}$\\
+$P_{L}$	&  $P_{L}$\\
+$P_{L}$	&  $P_{L}$\\
+	\hline
+\end{tabular}
+
+
+\input{transduction.tex}
+
+

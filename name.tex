@@ -209,140 +209,6 @@ Successor (via its transitive closure) and dominance are transitive relations; a
 
 Duanmu mentioned that only the Onset can get assigned a register and only the rime can assign pitch. 
 - since register dominates the nodes, we can replace the x with +st 
-\begin{tikzpicture}[
-  ->, 
-  node distance=1cm, 
-  every node/.style={circle, draw, inner sep=2pt}, 
-  re/.style={draw, rectangle, inner sep=2pt}
-]
-
-  % top nodes
-  \node (sS) {S};
-  \node (o) [below left=0.5cm and 0.3cm of sS] {O};
-  \node (r) [below right=0.5cm and 0.3cm of sS] {R};
-
-  % skeletal tier
-  \node (x1) [below=0.5cm of o] {x};
-  \node (x2) [right=0.5cm of x1] {x};
-  \node (x3) [right=0.5cm of x2] {x};
-  \coordinate (left)  at ($(x1)+(-.5,0)$);
-  \coordinate (right) at ($(x3)+(.5,0)$);
-
-  % REGISTER tier
-  \node (reg1) [below left =0.5cm of x1] {+st};
-  \node (reg2) [below left =0.5cm of x2] {-sl};
-  \node (reg3) [below left =0.5cm of x3] {+st};
-
-  % PITCH tier
-  \node (pit1) [below right =0.5cm and 2cm of reg1] {H};
-  \node (pit2) [below right =0.5cm and 2cm of reg2] {L};
-  \node (pit3) [below right =0.5cm and 2cm of reg3] {H};
-  
-  % connections
-  \draw (sS) -> (o) -> (x1);
-  \draw (sS) -> (r) -> (x2);
-  \draw (r) -> (x3);
-  \draw (left) -> (x1) -> (x2) -> (x3) -> (right);
-
-  % associations
-  \draw (x1) -> (reg1);
-  \draw (x2) -> (reg2);
-  \draw (x3) -> (reg3);
-
-  \draw (x1) -> (pit1);
-  \draw (x2) -> (pit2);
-  \draw (x3) -> (pit3);
-
-  % curved tier connections with labels
-  \draw (reg1) to[out=-30,in=-150] (reg2)
-        to[out=-30,in=-150] (reg3);
-
-  \draw (pit1) to[out=-30,in=-150] (pit2)
-        to[out=-30,in=-150] (pit3);
-
-\end{tikzpicture}
-
-
-\begin{tikzpicture}[
-  ->, 
-  node distance=1cm, 
-  every node/.style={circle, draw, inner sep=2pt}, 
-  re/.style={draw, rectangle, inner sep=2pt}
-]
-
-  % top nodes
-
-  \node (sS) {S};
-  \node (w) at ($(sS)+(0,1)$) {W};
-  \node (r) at ($(w)+(2,0)$) {+u};
-  \node (o) [below left=0.5cm and 0.3cm of sS] {O};
-  \node (r) [below right=0.5cm and 0.3cm of sS] {R};
-
-
-  % skeletal tier
-  \node (x1) [below=0.5cm of o] {x};
-  \node (x2) [right=0.5cm of x1] {x};
-  \node (x3) [right=0.5cm of x2] {x};
-  \coordinate (left)  at ($(x1)+(-.5,0)$);
-  \coordinate (right) at ($(x3)+(.5,0)$);
-
-  % REGISTER tier
-%  \node (reg1) at ($(x1)+(2,-1)$)  {+st};
-%  \node (reg2) [below left =0.5cm of x2] {-sl};
-%  \node (reg3) [below left =0.5cm of x3] {+st};
-
-  % PITCH tier
-  \node (pit1) at ($(r)+(2,0)$)  {H};
-  \node (pit2) at ($(pit1)+(1,0)$)  {L};
-%  \node (pit3) [below right =0.5cm and 2cm of reg3] {H};
-  
-  % connections
-  \draw (sS) -> (o) -> (x1);
-  \draw (sS) -> (r) -> (x2);
-  \draw (r) -> (x3);
- 
-  % associations
-  \draw (x2) -> (pit1);
-  \draw (x3) -> (pit2);
-
-  % curved tier connections with labels
-
-  \draw (pit1) to[out=-30,in=-150] (pit2)
-        to[out=-30,in=-150] (pit3);
-
-\end{tikzpicture}
-
-
-\hfill
-\begin{tikzpicture}[-,shorten >=1pt]
-	\tikzstyle{state}=[fill=white,draw=black,text=black,node distance=16mm]
-	
-	\node (w) at (-1,1) {w};
-	\node (re) at (2,1.5) {\textbf{Register}};
-	\node (s) at (-1,0) {S};
-	\node (r) at (0,-1) {R};
-	\node (T) at (2.5,-1) {\textbf{Pitch}};
-	\node (t1) at (2.0,-2) {L};
-	\node (t2) at (3,-2) {H};
-	
-
-	\node (o) at (-2,-1) {O};
-	\node (m) at (-1,-1) {M};
-	\node (x2) at (0,-2) {Nu};
-	\node (x3) at (1,-2) {Co};
-	\node (m1) at (0,-3) {$\mu$};
-	\node (m2) at (1,-3) {$\mu$};
-	\draw (w) -> (s);
-	\draw (T) -> (t1);
-	\draw (T) -> (t2);
-	\draw (s) -> (m);
-	\draw (s) -> (o);
-	\draw (s) -> (r) -> (x2) -> (m1);
-	\draw (r) -> (x3) -> (m2);
-	\draw [dotted](r) -> (T);
-	\draw [dotted](w) -> (re);
-\end{tikzpicture}
-
 
 \section{Five Tones in Shanghai}
 
@@ -359,6 +225,8 @@ Duanmu mentioned that only the Onset can get assigned a register and only the ri
 		\bottomrule
 	\end{tabular}
 \end{table}
+
+\input{duanmu_zhu}
 
 
 \bibliography{refs.bib}
