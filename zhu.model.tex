@@ -1,59 +1,48 @@
 \begin{figure}[ht]
 	\centering
 	% Autosegmental Representation
-	\begin{minipage}[b]{0.5\textwidth}
-		
+	\begin{minipage}[b]{0.5\textwidth}	
 	\begin{tikzpicture}[
 		node distance=1cm,
-		every node/.style={circle, draw, inner sep=2pt},
+		every node/.style={circle, draw},
 		a/.style={->},    
 		]
 		
 		\node (sS) {1\textsubscript{S}};
-		\node (o) [below left=0.5cm and 0.3cm of sS] {2\textsubscript{O}};
-		\node (r) [below right=0.5cm and 0.3cm of sS] {3\textsubscript{R}};
+		\node (reg)[above=0.5cm of sS]{10\textsubscript{+u}};
+		\draw (reg) to (sS); 
+		\node (o) [below left=of sS] {2\textsubscript{O}};
+		\node (r) [below right= of sS] {3\textsubscript{R}};
 		
 		% skeletal tier
-		\node (x1) [below=0.5cm of o] {4\textsubscript{p}};
-		\node (x2) [right=0.5cm of x1] {5\textsubscript{a}};
-		\node (x3) [right=0.5cm of x2] {6\textsubscript{?}};
+
+		\node (mu) [below= 0.5 of r] {6\textsubscript{$\mu$}};
+	\node (em1) [left=0.5 of mu, draw, dotted] {5};
+\node (em2) [left=0.5 of em1, draw, dotted] {4};
+
+		\node (p) [below=2cm of o] {7\textsubscript{p}};
+		\node (a) [right= of p] {8\textsubscript{a}};
+		\node (?) [right= of a] {9\textsubscript{?}};
 		
-		\node (p) [below=0.5cm of x1] {7\textsubscript{p}};
-		\node (a) [below=0.5cm of x2] {8\textsubscript{a}};
-		\node (?) [below=0.5cm of x3] {9\textsubscript{?}};
-		
-		\coordinate (left)  at ($(x1)+(-.5,0)$);
-		\coordinate (right) at ($(x3)+(.5,0)$);
-		
-		% REGISTER tier
-		\node (reg1) [below left =0.5cm of p] {10\textsubscript{+st}};
 		
 		% PITCH tier
 
-		\node (pit2) [below right =0.5cm and 0.5cm of a] {11\textsubscript{H}};
-		\node (pit3) [below right =0.5cm and 0.5cm of ?] {12\textsubscript{L}};
+		\node (pit2) [above right = of r] {11\textsubscript{H}};
+		\node (pit3) [right= 0.25cm of pit2] {12\textsubscript{L}};
 		
 		
 		% connections
 		\draw[a] (sS) -> (o);
 		\draw[a] (sS) -> (r);
-		\draw[a] (o) -> (x1);
-		\draw[a] (r) -> (x2);
-		\draw[a] (r) -> (x3);
-		\draw[a] (x1) -> (x2);
-		\draw[a] (x2) -> (x3);
-				\draw[a] (p) -> (a);
-		\draw[a] (a) -> (?);
-		
-		\draw (x1) -> (p);
-		\draw (x2) -> (a);
-		\draw (x3) -> (?);
-		
-		% associations
-		\draw (p) to (reg1);
-		\draw (a) -> (pit2);
-		\draw (?) -> (pit3);
-		\draw [a] (pit2)to[out=-30,in=-150] (pit3);
+		\draw[a] (o) -> (p);
+		\draw[a] (r) -> (mu);
+		\draw[a] (mu) -> (a);
+		\draw[a] (mu) -> (?);
+		\draw[a] (p) -> (a);
+		\draw[a] (a) -> (?);		
+		\draw [a] (pit2)to (pit3);
+		\draw[a] (r) -> (pit2);
+		\draw[a] (r) -> (pit3);
 			
 	\end{tikzpicture}
 		\end{minipage}
@@ -71,9 +60,10 @@
 $\lhd(x,y)$ & $\defeq$ & $\{\langle4,5\rangle,\langle5,6\rangle,\langle
 7,8\rangle,\langle 8,9 \rangle, \langle 11,12 \rangle\}$\\
 $\alpha(x,y)$ & $\defeq$ & $\{\langle4,7\rangle,\langle5,8\rangle,\langle 6,9
-\rangle,\langle 7,10\rangle,\; \langle 8,11 \rangle \,\langle 9,12 \rangle \}$\\
+\rangle,\langle 7,10\rangle,\; \langle 8,11 \rangle \,\langle 9,12 \rangle
+\}$\\
 $\blacktriangledown(x,y)$ & $\defeq$ &
-$\{\langle 1,2\rangle,\langle1,3\rangle,\langle 2,4 \rangle,\langle
+$\{\langle1,2\rangle,\langle1,3\rangle,\langle 2,4 \rangle,\langle
 3,5\rangle,
 \langle 8,11 \rangle,\langle 9,12 \rangle \}$\\
 

@@ -76,12 +76,16 @@ voicing of the following consonants\todo{give some examples}.
 \subsection{Representation of Register}
 Since register is a major distinction in Shanghai tonology, many models of 
 Shanghai tones have been proposed within feature geometry frameworks 
-\citep{clements1985,sagey1986feature}. The main debate concerns where register should be 
-located. The proposals are listed below, and their corresponding feature geometry representations are sketched beneath.
+\citep{clements1985,sagey1986feature}. The main debate concerns where register
+should be
+located. The proposals are listed below, and their corresponding feature
+geometry representations are sketched beneath.
 
 \begin{enumerate} \setlength\itemsep{0em} \setlength\parskip{0em}
-	\item A tonal feature \citep{yip1980diss}, or perhaps shared by laryngeal \citep{yip1993tonal}.
-	\item A feature of the \textit{onset}, conditioned by [+slack] (\citeauthor{duanmu1988}, based on \citet{bao1999structure}).
+\item A tonal feature \citep{yip1980diss}, or perhaps shared by laryngeal
+\citep{yip1993tonal}.
+\item A feature of the \textit{onset}, conditioned by [+slack]
+(\citeauthor{duanmu1988}, based on \citet{bao1999structure}).
 	\item A feature of the \textit{initial consonant} \citep{ren1992} (to read).
 	\item A property of the \textit{phonological word} \citep{zhu1999shanghai}.
 \end{enumerate}
@@ -125,32 +129,50 @@ structure in Shanghainese.
 
 \section{Proposal}
 There are four goals of this paper. First, I compare two competing theories 
-from \citet{duanmu1988} and \citet{zhu1999shanghai} from a learning perspective. 
+from \citet{duanmu1988} and \citet{zhu1999shanghai} from a learning
+perspective.
 These two models are chosen because their underlying syllabic structures are 
 both comparable and explicitly formulated, and because register and pitch nodes 
-are embedded at different levels of structure in each model. Moreover, the models 
+are embedded at different levels of structure in each model. Moreover, the
+models
 are distinct both representationally and mathematically. In contrast, 
-\citet{oakdenNotationalEquivalenceTonal2020} argues that the long-standing competition 
-between Bao’s and Yip’s models are notationally equivalent and translatable into each 
-other without loss of contrast. This distinction will be discussed further in Section XXX.
+\citet{oakdenNotationalEquivalenceTonal2020} argues that the long-standing
+competition
+between Bao’s and Yip’s models are notationally equivalent and translatable
+into each
+other without loss of contrast. This distinction will be discussed further in
+Section XXX.
 
-Each model is represented in model-theoretic terms so that relations such as association, 
-succession, and dominance are rigorously encoded. Learning is carried out using the Bottom-Up 
-Factorial Inference Algorithm (BUFIA; \citet{chandleeBufia2019}), which operates over model-theoretic 
+Each model is represented in model-theoretic terms so that relations such as
+association,
+succession, and dominance are rigorously encoded. Learning is carried out using
+the Bottom-Up
+Factorial Inference Algorithm (BUFIA; \citet{chandleeBufia2019}), which
+operates over model-theoretic
 inputs based on the two representations.
 
-Our learning goals have two components. First, we examine tonotactics: the co-occurrence 
-patterns between tones and features (register or voicing). We run BUFIA on both representational models, testing them on monosyllabic and disyllabic forms, to evaluate which model more effectively captures these patterns, particularly the agreement between voicing and tone.
+Our learning goals have two components. First, we examine tonotactics: the
+co-occurrence
+patterns between tones and features (register or voicing). We run BUFIA on both
+representational models, testing them on monosyllabic and disyllabic forms, to
+evaluate which model more effectively captures these patterns, particularly the
+agreement between voicing and tone.
 
 Register/voicing assimilation: the rules governing disyllabic compounds.
-The central question is which representational hypothesis best captures the relevant generalizations in both tonotactics and register assimilation. Conversely, if a representation fails to encode the appropriate dependencies, learning over such a representation will either over generate, under generate, or yield predictions that are empirically unattested.
+The central question is which representational hypothesis best captures the
+relevant generalizations in both tonotactics and register assimilation.
+Conversely, if a representation fails to encode the appropriate dependencies,
+learning over such a representation will either over generate, under generate,
+or yield predictions that are empirically unattested.
 
 \section{Graphic Model of Feature Geometry}
 
-Here we want to provide a more explciic terms for the features tiers. To start, we give formal definition of three
+Here we want to provide a more explciic terms for the features tiers. To start,
+we give formal definition of three
 relations that used in feature geomtery.
 
-- tier: Goldsmith (1976) defines a tier as a totally ordered  sequence of elements $a^i_j$ indicating the jth element on the ith level. Thus we have
+- tier: Goldsmith (1976) defines a tier as a totally ordered  sequence of
+elements $a^i_j$ indicating the jth element on the ith level. Thus we have
 \(
 a^1_1a^1_2a^1_3a^1_4 \cdots
 a^2_1a^2_2a^2_3a^2_4 \cdots
@@ -158,266 +180,54 @@ a^2_1a^2_2a^2_3a^2_4 \cdots
 
 
 \section{Comparing Different Models of Shanghai Tones}
-The original models are shown below. Duanmu’s model adopts the \textit{x}-slot framework, 
-while Zhu’s model is based on a moraic theory. In this section, we compare the two 
+The original models are shown below. Duanmu’s model adopts the \textit{x}-slot
+framework,
+while Zhu’s model is based on a moraic theory. In this section, we compare the
+two
 models using logical formalisms and establish transduction formulas in order to 
 determine whether they are genuinely distinct or merely notationally equivalent 
 \citep{strother2019diss,oakdenNotationalEquivalenceTonal2020}.
 
-Before proceeding, we introduce a set of notations that will be used in the later 
+Before proceeding, we introduce a set of notations that will be used in the
+later
 development of the models. We assume that any representation consists of a 
 \emph{skeletal tier}, on which places the segments that determine the timing 
 relations, such as mora or CV slots, and autosegmental tiers can only link 
 to slots in the skeletal tier \citep{pulleyblank1983diss}.
 
-Next, three types of relations can occur within and across tiers: \textit{successive},
+Next, three types of relations can occur within and across tiers:
+\textit{successive},
 \textit{associative}, and \textit{dominant}.
-
-\begin{enumerate}
-	\item \textbf{Successor relation} $\mathsf{Succ}(x,y)$: \\
-	For $x,y \in X$, $\mathsf{Succ}(x,y)$ holds iff $y$ immediately follows $x$ on the skeletal tier. 
-	The transitive closure of $\mathsf{Succ}$ defines a total order $\leq$ over $X$:
-	%    \[
-	%       \forall x,y \in X \;\; (x \leq y \;\lor\; y \leq x).
-	%    \]
-	
-	\item \textbf{Dominance relation} $\mathsf{Dom}(x,N)$: \\
-	For $x \in X$ and a higher-level node $N$ (e.g.\ syllable, foot, word), 
-	$\mathsf{Dom}(x,N)$ holds iff $N$ dominates $x$. 
-	Dominance is transitive:
-	%    \[
-	%       \forall x,N,M \;\; (\mathsf{Dom}(x,N) \wedge \mathsf{Dom}(N,M) \;\rightarrow\; \mathsf{Dom}(x,M)).
-	%    \]
-	
-	\item \textbf{Association relation} $\mathsf{Assoc}(x,f)$: \\
-	For $x \in X$ and a feature element $f$ on some feature tier $T_F$, 
-	$\mathsf{Assoc}(x,f)$ holds iff $x$ is associated to $f$. 
-	Each feature tier $T_F$ forms a totally ordered set, and the order of $T_F$ 
-	respects the skeletal order:
-	%    \[
-	%       \forall x,y \in X \;\; \forall f,g \in T_F \;\; 
-	%       (\mathsf{Assoc}(x,f) \wedge \mathsf{Assoc}(y,g) \wedge x < y \;\rightarrow\; f \leq g).
-	%    \]
-\end{enumerate}
 
 
 \subsection{Duanmu}
-Duanmu’s model employs the x-slot as the basic unit, proposing that most Chinese 
+Duanmu’s model employs the x-slot as the basic unit, proposing that most
+Chinese
 dialects can conform to this template. In his analysis, glides (which typically 
-serve as medials) are instead treated as secondary features of the onset in Chinese languages. 
+serve as medials) are instead treated as secondary features of the onset in
+Chinese languages.
 
-In Shanghai Chinese, the rime of a citation monosyllable occupies two slots. However, 
-When the syllable is closed by a glottal or nasal coda, the vowel takes one slot instead. 
-Each slot can be specified for \textsc{Voicing/Register} and \textsc{Pitch} values. 
-To avoid overgeneration of tonal registers, Duanmu introduces the following universal 
-constraints: (1) only segments in the rime may be assigned pitch; (2) each syllable 
-bears a single register specification. Based on Duanmu's proposal, we can formalize this model into a mathematical model using 
-logic. Here we assume that underlying, all slots will have V/R nodes but only the slots
+In Shanghai Chinese, the rime of a citation monosyllable occupies two slots.
+However,
+When the syllable is closed by a glottal or nasal coda, the vowel takes one
+slot instead.
+Each slot can be specified for \textsc{Voicing/Register} and \textsc{Pitch}
+values.
+To avoid overgeneration of tonal registers, Duanmu introduces the following
+universal
+constraints: (1) only segments in the rime may be assigned pitch; (2) each
+syllable
+bears a single register specification. Based on Duanmu's proposal, we can
+formalize this model into a mathematical model using
+logic. Here we assume that underlying, all slots will have V/R nodes but only
+the slots
 dominated by rimes will have the pitch nodes.
 
 \input{twomodels.tex}
 \input{model.tex}
-\input{transduction}
+\input{zhu.model.tex}
 
 \section{Five Tones in Shanghai}
-
-\begin{table}[h!]
-	\centering
-	\caption{Phonological features of the five Shanghai tones (\citep{zhu1999shanghai})} 
-	\begin{tabular}{lccccc}
-		\toprule
-		\textbf{Tones} & \textbf{T1} & \textbf{T2} & \textbf{T3} & \textbf{T4} & \textbf{T5} \\
-		\midrule
-		Register   & +U & +U & -U & +U & -U \\
-		Truncation & P  & P  & P  & q  & q  \\
-		Contour    & hl & lh & lh & lh & lh \\
-		\bottomrule
-	\end{tabular}
-\end{table}
-\[
-\begin{array}{ll}
-	P^{1}_{\sigma}(x) \defeq P_{\sigma}(x) 
-	& P^{1}_{+u}(x) \defeq P_{r}(x) \\[6pt]
-	
-	P^{1}_{-u}(x) \defeq P_{r}(x) 
-	& P^{1}_{h}(x) \defeq P_{l}(x) \\[6pt]
-	
-	P^{1}_{l}(x) \defeq P_{r}(x) 
-	& \alpha^{1,1}(x) \approx y \defeq P_{\sigma}(x) \wedge P_{r}(y) \wedge \alpha(x) \approx \delta(y) \\[6pt]
-	
-	\delta^{1,1}(x) \approx y \defeq P_{l}(x) \wedge P_{r}(y) \wedge \delta(\delta(x)) \approx \delta(y)
-	& s^{1,1}(x) \approx y \defeq s(x) \approx y
-\end{array}
-\]
-
-\begin{tikzpicture}[-,shorten >=1pt]
-	\tikzstyle{state}=[fill=white,draw=black,text=black,node distance=16mm]
-	
-	\node (w) at (0,1) {w};
-	\node (re) at (2,1) {\textbf{[+upper]}};
-	\node (s) at (0,0) {pa};
-	\node (r) at (0.5,-1) {R};
-	\node (T) at (2.5,-1) {\textbf{Pitch}};
-	\node (t1) at (2.0,-2) {H};
-	\node (t2) at (3,-2) {L};
-	
-	
-	\node (o) at (-.5,-1) {O};
-	\node (m1) at (.25,-2) {$\mu$};
-	\node (m2) at (.75,-2) {$\mu$};
-	\node (v) at (.5,-3) {a};
-	\node (c) at (-.5,-3) {p};
-	\draw (w) -> (s);
-	\draw (T) -> (t1);
-	\draw (T) -> (t2);
-	\draw (s) -> (o) -> (c);
-	\draw (s) -> (r) -> (m1) -> (v);
-	\draw (s) -> (r) -> (m2) -> (v);
-	\draw [dotted](r) -> (T);
-	\draw [dotted](w) -> (re);
-\end{tikzpicture}
-\begin{tikzpicture}[-,shorten >=1pt]
-	\tikzstyle{state}=[fill=white,draw=black,text=black,node distance=16mm]
-	
-	\node (w) at (0,1) {w};
-	\node (re) at (2,1) {\textbf{[+upper]}};
-	\node (s) at (0,0) {pa};
-	\node (r) at (0.5,-1) {R};
-	\node (T) at (2.5,-1) {\textbf{Pitch}};
-	\node (t1) at (2.0,-2) {L};
-	\node (t2) at (3,-2) {H};
-	
-	
-	\node (o) at (-.5,-1) {O};
-	\node (m1) at (.25,-2) {$\mu$};
-	\node (m2) at (.75,-2) {$\mu$};
-	\node (v) at (.5,-3) {a};
-	\node (c) at (-.5,-3) {p};
-	\draw (w) -> (s);
-	\draw (T) -> (t1);
-	\draw (T) -> (t2);
-	\draw (s) -> (o) -> (c);
-	\draw (s) -> (r) -> (m1) -> (v);
-	\draw (s) -> (r) -> (m2) -> (v);
-	\draw [dotted](r) -> (T);
-	\draw [dotted](w) -> (re);
-\end{tikzpicture}
-\begin{tikzpicture}[-,shorten >=1pt]
-	\tikzstyle{state}=[fill=white,draw=black,text=black,node distance=16mm]
-	
-	\node (w) at (0,1) {w};
-	\node (re) at (2,1) {\textbf{[-upper]}};
-	\node (s) at (0,0) {ba};
-	\node (r) at (0.5,-1) {R};
-	\node (T) at (2.5,-1) {\textbf{Pitch}};
-	\node (t1) at (2.0,-2) {L};
-	\node (t2) at (3,-2) {H};
-	
-	
-	\node (o) at (-.5,-1) {O};
-	\node (m1) at (.25,-2) {$\mu$};
-	\node (m2) at (.75,-2) {$\mu$};
-	\node (v) at (.5,-3) {a};
-	\node (c) at (-.5,-3) {b};
-	\draw (w) -> (s);
-	\draw (T) -> (t1);
-	\draw (T) -> (t2);
-	\draw (s) -> (o) -> (c);
-	\draw (s) -> (r) -> (m1) -> (v);
-	\draw (s) -> (r) -> (m2) -> (v);
-	\draw [dotted](r) -> (T);
-	\draw [dotted](w) -> (re);
-\end{tikzpicture}
-
-\begin{tikzpicture}[-,shorten >=1pt]
-	\tikzstyle{state}=[fill=white,draw=black,text=black,node distance=16mm]
-	
-	\node (w) at (0,1) {w};
-	\node (re) at (2,1) {\textbf{[+upper]}};
-	\node (s) at (0,0) {paʔ};
-	\node (r) at (0.5,-1) {R};
-	\node (T) at (2.5,-1) {\textbf{Pitch}};
-	\node (t1) at (2.0,-2) {L};
-	\node (t2) at (3,-2) {H};
-	
-	
-	\node (o) at (-.5,-1) {O};
-	\node (m1) at (.5,-2) {$\mu$};
-	\node (m2) at (.5,-2) {$\mu$};
-	
-	\node (v1) at (.25,-3) {a};
-	\node (v2) at (.75,-3) {ʔ};
-	\node (c) at (-.5,-3) {p};
-	\draw (w) -> (s);
-	\draw (T) -> (t1);
-	\draw (T) -> (t2);
-	\draw (s) -> (o) -> (c);
-	\draw (s) -> (r) -> (m1) -> (v1);
-	\draw (s) -> (r) -> (m2) -> (v2);
-	\draw [dotted](r) -> (T);
-	\draw [dotted](w) -> (re);
-\end{tikzpicture}
-\begin{tikzpicture}[-,shorten >=1pt]
-	\tikzstyle{state}=[fill=white,draw=black,text=black,node distance=16mm]
-	
-	\node (w) at (0,1) {w};
-	\node (re) at (2,1) {\textbf{[-upper]}};
-	\node (s) at (0,0) {baʔ};
-	\node (r) at (0.5,-1) {R};
-	\node (T) at (2.5,-1) {\textbf{Pitch}};
-	\node (t1) at (2.0,-2) {L};
-	\node (t2) at (3,-2) {H};
-	
-	
-	\node (o) at (-.5,-1) {O};
-	\node (m1) at (.5,-2) {$\mu$};
-	\node (m2) at (.5,-2) {$\mu$};
-	
-	\node (v1) at (.25,-3) {a};
-	\node (v2) at (.75,-3) {ʔ};
-	\node (c) at (-.5,-3) {b};
-	\draw (w) -> (s);
-	\draw (T) -> (t1);
-	\draw (T) -> (t2);
-	\draw (s) -> (o) -> (c);
-	\draw (s) -> (r) -> (m1) -> (v1);
-	\draw (s) -> (r) -> (m2) -> (v2);
-	\draw [dotted](r) -> (T);
-	\draw [dotted](w) -> (re);
-\end{tikzpicture}
-
-\ea \begin{tabular}[t]{lllll}
-	\c co & \c ci & w\~a & du & ŋ \\
-	MH & HL & LH & LH & LH \\
-	\textit{small} & \textit{fresh} &\textit{ yellow} & \textit{big} & \textit{fish} \\
-\end{tabular}
-\z
-\ea
-\begin{tabular}{ccccccc}
-	\c co & + & ŋ & $\rightarrow$& \c co& + &ŋ\\ 
-	% small&&fish&& \multicolumn{3}{c}`small fish'\\
-	MH &&LH&&M&&H\\
-	\c ci & + & ŋ & $\rightarrow$& \c ci& + &ŋ\\ 
-	HL &&LH&&H&&L\\
-\end{tabular}
-\z
-\ea    
-\begin{tabular}{cccccccccc}
-	\c co & + & w\~a & + & ŋ & $\rightarrow$& \c co w\~a ŋ\\ 
-	MH &&LH&&LH&&M  H  L\\
-	\c du & + & w\~a & + & ŋ & $\rightarrow$& \c du w\~a ŋ\\ 
-	LH &&LH&&LH&&L  H  L\\
-\end{tabular}        
-\z
-
-
-\begin{enumerate}[label=\alph*.]
-	\item \textbf{Initial Dominance:} delete tones from non-initial syllables.
-	\item Associate tones to syllables one-to-one, from left to right.
-	\item If there are more tones than syllables, link the excess tones to the last syllable.
-	\item If there are more syllables than tones, assign \textsc{L} as the default tone.
-\end{enumerate}
-
 
 
 
