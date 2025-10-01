@@ -1,73 +1,160 @@
 \documentclass{article}
-\usepackage{amsmath}
-\usepackage{amssymb}
-
-% Optional: define a cleaner "defeq" command
-\newcommand{\defeq}{\stackrel{\mathrm{def}}{=}}
+\usepackage{booktabs}
+\usepackage{amsmath} % <-- needed for \text
+\usepackage{tipa}
 
 \begin{document}
-Transduction from X-slot to mora 
-\begin{align*}
-\phi_{\textsf{license}}(x) 
-  &\;\defeq\; 
-    \lnot\Big(
-      \mathsf{X}(x) \;\wedge\;
-      \big(
-        \downarrow(\mathsf{onset}(y), x) \;\vee\;
-        \downarrow(x, \mathsf{glottal}(y))
-      \big)
-    \Big)\\
-\textit{C} &= 1\\    
-\sigma(x^1) &\;\defeq\; \sigma(x)\\
-\mathsf{onset}(x^1) &\;\defeq\; \mathsf{onset}(x)\\
-\mathsf{rime}(x^1) &\;\defeq\; \mathsf{rime}(x)\\
-\mathsf{cons}(x^1) &\;\defeq\; \mathsf{cons}(x)\\
-\mathsf{vowel}(x^1) &\;\defeq\; \mathsf{vowel}(x)\\
-\mathsf{glottal}(x^1) &\;\defeq\; \mathsf{glottal}(x)\\
-\mathsf{st}(x^1) &\;\defeq\; \mathsf{upper}(x)\\
-\mathsf{\mu}(x^1) &\;\defeq\; \mathsf{X}(x)\\
-\mathsf{H}(x^1) &\;\defeq\; \mathsf{H}(x)\\
-\mathsf{L}(x^1) &\;\defeq\; \mathsf{L}(x)\\[6pt]
-\lhd(x^1,y^1) &\;\defeq\; \lhd(x,y)\\
-\downarrow(x^1,y^1)
-   &\;\defeq\; 
-      \downarrow(x,y) 
-      \;\vee\; (\mathsf{onset}(x) \wedge \mathsf{cons}(y)) 
-      \;\vee\; (\mathsf{X}(x) \wedge \mathsf{glottal}(y))\\
-\alpha(x^1,y^1) 
-   &\;\defeq\; 
-      (\mathsf{cons}(x) \wedge \mathsf{upper}(y)) \\
-   &\;\;\;\;\vee\; (\mathsf{rime}(x) \wedge (\mathsf{vowel}(y) \vee \mathsf{glottal}(y))).
-\end{align*}
 
-\begin{align*}
-\phi_{\textsf{license}}(x) &\;\defeq\; \text{True}\\
-\textit{C} &= 2\\[6pt]
-\sigma(x^1) &\;\defeq\; \sigma(x)\\
-\mathsf{onset}(x^1) &\;\defeq\; \mathsf{onset}(x)\\
-\mathsf{rime}(x^1) &\;\defeq\; \mathsf{rime}(x)\\
-\mathsf{cons}(x^1) &\;\defeq\; \mathsf{cons}(x)\\
-\mathsf{vowel}(x^1) &\;\defeq\; \mathsf{vowel}(x)\\
-\mathsf{glottal}(x^1) &\;\defeq\; \mathsf{glottal}(x)\\
-\mathsf{st}(x^1) &\;\defeq\; \mathsf{upper}(x)\\[6pt]
-\mathsf{X}(x^1) &\;\defeq\; \mu(x) \wedge \alpha(x,\mathsf{vowel})\\
-\mathsf{X}(x^2) &\;\defeq\; \mathsf{glottal}(x) \;\vee\; \mathsf{cons}(x)\\
-\mathsf{H}(x^1) &\;\defeq\; \mathsf{H}(x)\\
-\mathsf{L}(x^1) &\;\defeq\; \mathsf{L}(x)\\[6pt]
-\lhd(x^1,y^1) &\;\defeq\; \lhd(x,y)\\
-\downarrow(x^1,y^1) 
-   &\;\defeq\; \downarrow(x,y) \wedge \lnot\mathsf{onset}(x) \wedge \mathsf{glottal}(y)\\
-\downarrow(x^1,y^2) 
-   &\;\defeq\; \mathsf{rime}(x) \wedge \mathsf{glottal}(y)\\
-\downarrow(x^1,y^2) 
-   &\;\defeq\; \mathsf{onset}(x) \wedge \mathsf{cons}(y)\\
-\downarrow(x^2,x^1) 
-   &\;\defeq\; \mathsf{cons}(x) \vee \mathsf{glottal}(x) \\[6pt]
-\alpha(x^1,y^1) 
-   &\;\defeq\; (\mathsf{cons}(x) \wedge \mathsf{upper}(y)) \\
-   &\;\;\;\;\vee\; (\mathsf{vowel}(x) \wedge \mathsf{H}(y)) \\
-   &\;\;\;\;\vee (\mathsf{glottal}(x) \wedge\mathsf{L}(y)).
-\end{align*}
+\begin{table}[h]
+\centering
+\begin{tabular}{lccccccccccccc}
+\hline
+     & D & G & N & T & g & \`{a} & \'{a} & \^{a} & \={a} & \'{n} & \c{n} & \v{n} & \v{a} \\
+\hline
+nas   & - & - & + & - & - & - & - & - & - & + & + & + & - \\
+cons  & + & + & + & + & + & - & - & - & - & + & + & + & - \\
+son   & - & - & + & - & - & + & + & + & + & + & + & + & + \\
+voi   & + & + & + & - & - & + & + & + & + & + & + & + & + \\
+cg    & - & + & - & - & + & - & - & - & - & - & - & - & - \\
+H     & 0 & 0 & 0 & 0 & 0 & - & + & - & - & - & - & + & + \\
+L     & 0 & 0 & 0 & 0 & 0 & + & - & - & + & - & + & - & - \\
+short & 0 & 0 & 0 & 0 & 0 & + & + & - & - & - & - & - & - \\
+fall  & 0 & 0 & 0 & 0 & 0 & - & - & - & - & - & - & + & + \\
+\hline
+\end{tabular}
+\caption{Feature specification table for Shanghai segments}
+\end{table}
+
+
+\begin{verbatim}
+./bufia -b False -o succ -k 3 -n 2 -
+    data/shanghai_data.txt data/shanghai_features.csv
+\end{verbatim}
+
+\begin{tabular}{ll}
+\texttt{[][+voi,-son]}       & \\
+\texttt{[][-cg,-son]}        & \\
+\texttt{[][+cons,-L]}        & \\
+\texttt{[+voi][-fall,+H]}    & \\
+\texttt{[-cg][+cons,-short]} & \\
+\texttt{[+cons][-son]}       & \\
+\texttt{[-short][-nas]}      & \\
+\texttt{[-fall][-short]}     & \\
+\texttt{[-fall][-fall]}      & \\
+\texttt{[+nas][+cons]}       & \\
+\texttt{[-voi][+cons]}       & \\
+\texttt{[-voi][+L]}          & \\
+\texttt{[+cg][-fall,+H]}     & \\
+\texttt{[+short][+voi]}      & \\
+\texttt{[-cg,+cons][+cons]}  & \\
+\texttt{[-voi,+cg][]}        & \\
+\texttt{[][][-short]}        & \\
+\texttt{[][][-fall]}         & \\
+\texttt{[+cg][-L][]}         & \\
+\texttt{[+voi,-nas][-L][]}   & \\
+\end{tabular}
+
+
+
+\begin{verbatim}
+bufia ./bufia -b False -o succ -k 3 -n 2 --
+keep='["cons","son","cg","H","L","voi"]' 
+data/shanghai_data.txt data/shanghai_features.csv
+\end{verbatim}
+
+\begin{tabular}{rl}
+pos1&pos2\\
+\texttt{[]}           & \texttt{[+voi, -son]} \\
+\texttt{[]}           & \texttt{[-cg, -son]}  \\
+\texttt{[]}           & \texttt{[+cons, -L]}  \\
+\texttt{[-cg]}        & \texttt{[+cons, -H]}  \\
+\texttt{[+cons]}      & \texttt{[-son]}       \\
+\texttt{[-cons]}      & \texttt{[-cons]}      \\
+\texttt{[-H]}         & \texttt{[-cons]}      \\
+\texttt{[-L]}         & \texttt{[-cons]}      \\
+\texttt{[-voi]}       & \texttt{[+cons]}      \\
+\texttt{[-voi]}       & \texttt{[+L]}         \\
+\texttt{[-cg, +cons]} & \texttt{[+cons]}      \\
+\texttt{[-H, -L]}     & \texttt{[-son]}       \\
+\texttt{[-voi, +cg]}  & \texttt{[]}           \\
+\texttt{[]}           & \texttt{[-cons]}      \\
+\texttt{[+voi]}       & \texttt{[-L, -son]}   \\
+\texttt{[+cg]}        & \texttt{[-L]}         \\
+\texttt{[+voi, -son]} & \texttt{[-L]}         \\
+\end{tabular}
+\begin{verbatim}
+ bufia ./bufia -b False -o succ -k 3 -n 2 
+ --keep='["son","cg","H","L","voi"]' 
+ data/shanghai_data.txt data/shanghai_features.csv   
+\end{verbatim}
+
+\begin{tabular}{ll}
+\texttt{[]\shortstack{[+voi\\-son]}}     & /\textipa{H}/ only occur initially \\
+\texttt{[][-cg, -son]}      & obstruent only occur initially \\
+\texttt{[-H][-H]}           & monosyllabic \\
+\texttt{[-H][-L]}           & monosyllabic \\
+\texttt{[-L][-H]}           & monosyllabic \\
+\texttt{[-L][-L]}           & monosyllabic \\
+\texttt{[-son][-son]}       & no obstruent clusters \\
+\texttt{[-voi][+L]}         & voiceless has to start low \\
+\texttt{[-H,-L][-son]}      & closed syllable do not have M tone \\
+\texttt{[-voi,+cg][]}       & glottal stop only occur finally \\
+\texttt{[][][-H]}           &  \\
+\texttt{[][][-L]}           &  \\
+\texttt{[-H][][]}           &  \\
+\texttt{[-L][][]}           &  \\
+\texttt{[+voi][-L][-son]}   & NV\textipa{P} only starts L \\
+\texttt{[+cg][-L][]}        & */\textipa{H}/ only starts L in closed syllable \\
+\texttt{[+voi, -son][-L][]} & voiced obstruent onset cannot start L \\
+\end{tabular}
+
+\begin{verbatim}
+ bufia ./bufia -b False -o succ -k 3 -n 2 
+ --keep='["son","L","voi"]' 
+ data/shanghai_data.txt data/shanghai_features.csv   
+\end{verbatim}
+
+\begin{tabular}{ll}
+\texttt{[ ][+voi,-son]}   & \\
+\texttt{[-L][-L]}      & \\
+\texttt{[-L][+L]}      & \\
+\texttt{[-son][-son]}  & \\
+\texttt{[+L][-L]}      & \\
+\texttt{[+L][+L]}      & \\
+\texttt{[-voi][+L]}    & \\
+\texttt{[][][-L]}      & \\
+\texttt{[][][+L]}      & \\
+\texttt{[][-son][]}    & \\
+\texttt{[+voi][-L][-son]} & \\
+\texttt{[-L][][]}      & \\
+\texttt{[+L][][]}      & \\
+\texttt{[+voi,-son][-L][]} & \\
+\end{tabular}
+
+
+\begin{verbatim}
+./bufia -b False -o succ -k 3 -n 2 --keep='["son","L","voi","cg"]' \
+    data/shanghai_data.txt data/shanghai_features.csv
+\end{verbatim}
+
+\begin{tabular}{ll}
+\texttt{[][+voi,-son]}     & \\
+\texttt{[][-cg,-son]}      & \\
+\texttt{[-L][-L]}          & \\
+\texttt{[-L][+L]}          & \\
+\texttt{[-son][-son]}      & \\
+\texttt{[+L][-L]}          & \\
+\texttt{[+L][+L]}          & \\
+\texttt{[-voi][+L]}        & \\
+\texttt{[-voi,+cg][]}      & \\
+\texttt{[][][-L]}          & \\
+\texttt{[][][+L]}          & \\
+\texttt{[+voi][-L][-son]}  & \\
+\texttt{[-L][][]}          & \\
+\texttt{[+L][][]}          & \\
+\texttt{[+cg][-L][]}       & \\
+\texttt{[+voi,-son][-L][]} & \\
+\end{tabular}
 
 
 \end{document}
