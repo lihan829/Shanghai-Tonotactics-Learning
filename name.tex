@@ -165,69 +165,101 @@ Conversely, if a representation fails to encode the appropriate dependencies,
 learning over such a representation will either over generate, under generate,
 or yield predictions that are empirically unattested.
 
-\section{Graphic Model of Feature Geometry}
-
-Here we want to provide a more explciic terms for the features tiers. To start,
-we give formal definition of three
-relations that used in feature geomtery.
-
-- tier: Goldsmith (1976) defines a tier as a totally ordered  sequence of
-elements $a^i_j$ indicating the jth element on the ith level. Thus we have
-\(
-a^1_1a^1_2a^1_3a^1_4 \cdots
-a^2_1a^2_2a^2_3a^2_4 \cdots
-\)
-
-
-\section{Comparing Different Models of Shanghai Tones}
-The original models are shown below. Duanmu’s model adopts the \textit{x}-slot
-framework,
-while Zhu’s model is based on a moraic theory. In this section, we compare the
-two
-models using logical formalisms and establish transduction formulas in order to 
-determine whether they are genuinely distinct or merely notationally equivalent 
-\citep{strother2019diss,oakdenNotationalEquivalenceTonal2020}.
-
-Before proceeding, we introduce a set of notations that will be used in the
-later
-development of the models. We assume that any representation consists of a 
-\emph{skeletal tier}, on which places the segments that determine the timing 
-relations, such as mora or CV slots, and autosegmental tiers can only link 
-to slots in the skeletal tier \citep{pulleyblank1983diss}.
-
-Next, three types of relations can occur within and across tiers:
-\textit{successive},
-\textit{associative}, and \textit{dominant}.
-
 
 \subsection{Duanmu}
 Duanmu’s model employs the x-slot as the basic unit, proposing that most
-Chinese
-dialects can conform to this template. In his analysis, glides (which typically 
-serve as medials) are instead treated as secondary features of the onset in
-Chinese languages.
-
-In Shanghai Chinese, the rime of a citation monosyllable occupies two slots.
-However,
-When the syllable is closed by a glottal or nasal coda, the vowel takes one
-slot instead.
+Chinese dialects can conform to this template. In his analysis, glides 
+are instead treated as secondary features of the onset (which takes one
+slot); the rime of a citation monosyllable occupies two slots when the vowel
+is long, or one slot when the syllable is closed by a glottal or nasal coda.
 Each slot can be specified for \textsc{Voicing/Register} and \textsc{Pitch}
-values.
-To avoid overgeneration of tonal registers, Duanmu introduces the following
-universal
-constraints: (1) only segments in the rime may be assigned pitch; (2) each
-syllable
-bears a single register specification. Based on Duanmu's proposal, we can
-formalize this model into a mathematical model using
-logic. Here we assume that underlying, all slots will have V/R nodes but only
-the slots
-dominated by rimes will have the pitch nodes.
+values. To avoid over-generate, Duanmu proposes the following universal
+constraints: (1) only rime may be assigned pitch; (2) each syllable bears a 
+single register specification. 
 
-\input{twomodels.tex}
-\input{model.tex}
-\input{zhu.model.tex}
+This model can be formalized in a model-theoretic framework, in which a linguistic 
+object of finite size is represented as a mathematical structure. Formally, a 
+model consists of two components: a domain $\mathcal{D}$, which specifies the set 
+of elements that constitute the object (e.g., tones, moras, syllables), and a set 
+of relations over that domain, denoted as $\mathcal{R} = \{ R_1, R_2, \dots, R_n 
+\}$. These relations define the \textit{signature }of the model.
+
+Taking a specific word such as /paʔ/, we can instantiate it within the model to 
+obtain an explicitly defined structure $\mathcal{M}^{\text{pa\textglotstop}}$. 
+Since the model contains symbols such as $\sigma$, \textsf{onset}, \textsf{rime}, 
+\textsf{x}, and various IPA symbols, we treat these “atoms” as unary relations. In 
+contrast, relations that represent hierarchical or associative connections—those 
+that involve two or more symbols—are modeled as binary relations. Within this 
+framework, we define three primary binary relations: (1) dominance ($\blacktriangledown$), 
+representing hierarchical relations such as syllable structure dominance;
+(2) association ($\alpha$), representing feature or tonal association with 
+segments; and
+(3) successor ($\lhd$), representing the temporal ordering among elements within 
+each tier.relation $\lhd$). The signature of $\mathcal{M}^{\text{pa\textglotstop}}$ can be written as
+\[
+\mathcal{M}
+= \langle 
+D;\;
+\{\, R_i \mid i \in 
+\{\text{a}, \text{e}, \text{i}, \text{p}, \text{b}, \text{t}, \ldots\}
+\cup
+\{\text{H}, \text{L}, \text{st}, \text{sl}, \sigma, \text{onset}, \text{rime}, \text{slot}\} \,\}
+\cup
+\{\,\blacktriangledown, \lhd, \alpha\,\}
+\rangle
+\]
+We can further use those atoms to include the  features:
+\begin{align*}
+\textsf{cons} &\stackrel{\text{def}}{=} \{p,b,t,d,k,g\}\\
+\textsf{vocalic} &\stackrel{\text{def}}{=} \{a,i,e,u\}\\
+\textsf{nasal} &\stackrel{\text{def}}{=} \{m,n,N\}\\
+\textsf{glottal} &\stackrel{\text{def}}{=} \{\text{\textglotstop,\texthth}\}\\
+\textsf{voiced} &\stackrel{\text{def}}{=} \{\text{b,d,g}\}\\
+\end{align*}
+\include{model.tex}
+The same word \text{pa\textglotstop} in the representational proposed by Zhu will have 
+a different model with a different signature
+\[
+\mathcal{M}
+= \langle 
+D;\;
+\{\, R_i \mid i \in 
+\{\text{a}, \text{e}, \text{i}, \text{p}, \text{b}, \text{t}, \ldots\}
+\cup
+\{\text{H}, \text{L}, \text{upper}, \sigma, \text{onset}, \text{rime}, \mu \} \,\}
+\cup
+\{\,\blacktriangledown, \lhd, \alpha\,\}
+\rangle
+\]
+\input{d.model.tex}
 
 \section{Five Tones in Shanghai}
+
+%
+%\input{transduction.tex}
+
+\begin{align*}
+\phi_{\textsf{license}}(x) &
+\;\defeq\;
+\lnot\Big(
+\mathsf{slot}(x) \wedge
+\exists y \,[\, 
+\blacktriangledown(\mathsf{onset}(y),x)
+\vee
+\blacktriangledown(x,\mathsf{glottal}(y))
+\,]
+\Big)\\
+\textit{C} &= 1, \\
+\sigma^1(x) & \defeq\;\sigma(x)\\
+\textsf{onset}^1 (x) & \defeq\textsf{onset} (x) \\
+\textsf{rime}^1 (x) & \defeq\textsf{rime} (x) \\
+\textsf{H}^1 (x) & \defeq\textsf{H} (x) \\
+\textsf{L}^1 (x) & \defeq\textsf{L} (x) \\
+\mu^1 (x) & \defeq\textsf{slot} (x) (should include unlicensed?)\\
+\textsf{cons}^1 (x) & \defeq \textsf{cons} (x), \\
+\textsf{vowel}^1 (x) & \defeq \textsf{vowel} (x) \\
+\textsf{upper}(x^1) & \defeq \textsf{sl}(x) \vee \lnot \textsf{st}(x) \\
+\end{align*}
 
 
 

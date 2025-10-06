@@ -1,22 +1,21 @@
 \begin{figure}[ht]
 	\centering
 	% Autosegmental Representation
-	\begin{minipage}[b]{0.5\textwidth}
-		
+	\begin{minipage}[b]{0.2\textwidth}
 	\begin{tikzpicture}[
 		node distance=1cm,
 		every node/.style={circle, draw, inner sep=2pt},
 		a/.style={->},    
 		]
 		
-		\node (sS) {1\textsubscript{S}};
-		\node (o) [below left=0.5cm and 0.3cm of sS] {2\textsubscript{O}};
-		\node (r) [below right=0.5cm and 0.3cm of sS] {3\textsubscript{R}};
+		\node (S) at (0,0) {1\textsubscript{S}};
+		\node (o) [below left=0.5cm and 0.3cm of S] {2\textsubscript{O}};
+		\node (r) [below right=0.5cm and 0.3cm of S] {3\textsubscript{R}};
 		
 		% skeletal tier
-		\node (x1) [below=0.5cm of o] {4\textsubscript{p}};
-		\node (x2) [right=0.5cm of x1] {5\textsubscript{a}};
-		\node (x3) [right=0.5cm of x2] {6\textsubscript{?}};
+		\node (x1) [below=0.5cm of o] {4\textsubscript{x}};
+		\node (x2) [right=0.5cm of x1] {5\textsubscript{x}};
+		\node (x3) [right=0.5cm of x2] {6\textsubscript{x}};
 		
 		\node (p) [below=0.5cm of x1] {7\textsubscript{p}};
 		\node (a) [below=0.5cm of x2] {8\textsubscript{a}};
@@ -27,7 +26,9 @@
 		
 		% REGISTER tier
 		\node (reg1) [below left =0.5cm of p] {10\textsubscript{+st}};
-		
+		\node (reg2) [right=0.5cm of reg1] {11\textsubscript{+sl}};
+		\draw[a] (reg1) -> (reg2);
+		\draw(p) -> (reg2);
 		% PITCH tier
 
 		\node (pit2) [below right =0.5cm and 0.5cm of a] {11\textsubscript{H}};
@@ -35,14 +36,14 @@
 		
 		
 		% connections
-		\draw[a] (sS) -> (o);
-		\draw[a] (sS) -> (r);
+		\draw[a] (S) -> (o);
+		\draw[a] (S) -> (r);
 		\draw[a] (o) -> (x1);
 		\draw[a] (r) -> (x2);
 		\draw[a] (r) -> (x3);
 		\draw[a] (x1) -> (x2);
 		\draw[a] (x2) -> (x3);
-				\draw[a] (p) -> (a);
+		\draw[a] (p) -> (a);
 		\draw[a] (a) -> (?);
 		
 		\draw (x1) -> (p);
@@ -56,41 +57,27 @@
 		\draw [a] (pit2)to[out=-30,in=-150] (pit3);
 			
 	\end{tikzpicture}
-		\end{minipage}
-	\hfill
-	% Model Representation
-\newcommand{\defeq}{\stackrel{\text{def}}{=}}
-	\renewcommand{\arraystretch}{1.2}
-	\begin{tabular}{|ccl|}
+	\end{minipage} \hfill \vspace{-10cm}
+	\begin{tabular}{ccl}
 		\hline
-		$D$ & $\stackrel{\text{def}}{=}$ & [1 $\cdots$ 9] \\
-		$C$ & $\defeq$ & \{1\} \\
-		${\text{license}}(x)$ & $\defeq$ & true\\
-		\hline
-
-$\lhd(x,y)$ & $\defeq$ & $\{\langle4,5\rangle,\langle5,6\rangle,\langle
-7,8\rangle,\langle 8,9 \rangle, \langle 11,12 \rangle\}$\\
-$\alpha(x,y)$ & $\defeq$ & $\{\langle4,7\rangle,\langle5,8\rangle,\langle 6,9
-\rangle,\langle 7,10\rangle,\; \langle 8,11 \rangle \,\langle 9,12 \rangle \}$\\
-$\blacktriangledown(x,y)$ & $\defeq$ &
-$\{\langle 1,2\rangle,\langle1,3\rangle,\langle 2,4 \rangle,\langle
+  $D$& $\stackrel{\text{def}}{=}$ & $\{1, 2, 3 \ldots 13\}$\\                                                                                                   
+  $\lhd(x,y)$        &          $\defeq$          & $\{\langle4,5\rangle,\langle5,6\rangle,\langle
+7,8\rangle,\langle 8,9 \rangle, \langle 11,12 \rangle\}$                           \\
+		      $\alpha(x,y)$       &          $\defeq$          & $\{\langle4,7\rangle,\langle5,8\rangle,\langle 6,9
+\rangle,\langle 7,10\rangle,\; \langle 8,11 \rangle \,\langle 9,12 \rangle \}$ \\
+		$\blacktriangledown(x,y)$ &          $\defeq$          & $\{\langle 1,2\rangle,\langle1,3\rangle,\langle 2,4 \rangle,\langle
 3,5\rangle,
-\langle 8,11 \rangle,\langle 9,12 \rangle \}$\\
-
-		\hline
-		$\mathsf{\sigma}(x)$ & $\defeq$ &  $\{1\}$ \\
-		$\mathsf{rime}(x)$ & $\defeq$ &  $\{2\}$ \\
-		$\mathsf{onset}(x)$ & $\defeq$ &  $\{3\}$ \\
-		$\mathsf{slot}(x)$ & $\defeq$ & $ \{4,5,6\}$ \\
-		\hline
-		$\mathsf{p}(x)$ & $\defeq$ & $\{7\}$\\
-		${\mathsf{a}}(x)$ & $\defeq$ & $\{8\}$ \\
-		${\mathsf{ʔ}}(x)$ & $\defeq$ & $\{9\}$ \\
-		${\mathsf{st}}(x)$ & $\defeq$ & $\{10\}$\\
-		${\mathsf{H}}(x)$ & $\defeq$ & $\{11\}$ \\
-		${\mathsf{L}}(x)$ & $\defeq$ & $\{12\}$ \\
-		\hline
+\langle 8,11 \rangle,\langle 9,12 \rangle \}$     \\ \hline
+		  $\mathsf{\sigma}(x)$    &          $\defeq$          & $\{1\}$                                                                                                                           \\
+		   $\mathsf{rime}(x)$     &          $\defeq$          & $\{2\}$                                                                                                                           \\
+		   $\mathsf{onset}(x)$    &          $\defeq$          & $\{3\}$                                                                                                                           \\
+		   $\mathsf{slot}(x)$     &          $\defeq$          & $ \{4,5,6\}$                                                                                                                      \\ \hline
+		     $\mathsf{p}(x)$      &          $\defeq$          & $\{7\}$                                                                                                                           \\
+		    ${\mathsf{a}}(x)$     &          $\defeq$          & $\{8\}$                                                                                                                           \\
+		  {\textglotstop}$(x)$    &          $\defeq$          & $\{9\}$                                                                                                                           \\
+		   ${\mathsf{st}}(x)$     &          $\defeq$          & $\{10\}$                                                                                                                          \\
+		   ${\mathsf{sl}}(x)$     &          $\defeq$          & $\{11\}$                                                                                                                          \\
+		    ${\mathsf{H}}(x)$     &          $\defeq$          & $\{11\}$                                                                                                                          \\
+		    ${\mathsf{L}}(x)$     &          $\defeq$          & $\{12\}$                                                                                                                          \\ \hline
 	\end{tabular}
 \end{figure}
-
-
