@@ -216,7 +216,8 @@ We can further use those atoms to include the  features:
 \textsf{glottal} &\stackrel{\text{def}}{=} \{\text{\textglotstop,\texthth}\}\\
 \textsf{voiced} &\stackrel{\text{def}}{=} \{\text{b,d,g}\}\\
 \end{align*}
-\include{model.tex}
+\input{model.tex}
+
 The same word \text{pa\textglotstop} in the representational proposed by Zhu will have 
 a different model with a different signature
 \[
@@ -232,12 +233,6 @@ D;\;
 \rangle
 \]
 \input{d.model.tex}
-
-\section{Five Tones in Shanghai}
-
-%
-%\input{transduction.tex}
-
 \begin{align*}
 \phi_{\textsf{license}}(x) &
 \;\defeq\;
@@ -255,12 +250,58 @@ D;\;
 \textsf{rime}^1 (x) & \defeq\textsf{rime} (x) \\
 \textsf{H}^1 (x) & \defeq\textsf{H} (x) \\
 \textsf{L}^1 (x) & \defeq\textsf{L} (x) \\
-\mu^1 (x) & \defeq\textsf{slot} (x) (should include unlicensed?)\\
-\textsf{cons}^1 (x) & \defeq \textsf{cons} (x), \\
+\mu^1 (x) & \defeq\textsf{slot} (x) \\
+\textsf{cons}^1 (x) & \defeq \textsf{cons} (x) \\
 \textsf{vowel}^1 (x) & \defeq \textsf{vowel} (x) \\
-\textsf{upper}(x^1) & \defeq \textsf{sl}(x) \vee \lnot \textsf{st}(x) \\
+\textsf{upper}(x^1) & \defeq \textsf{st}(x) \vee \lnot \textsf{sl}(x) \\
+\lhd^{(1,1)}(x,y) &\;\defeq\; \lhd(x,y), \\[4pt]
+\blacktriangledown^{(1,1)}(x,y) &\defeq \blacktriangledown(x,y) \\
+								&\vee \exists x,y,z (\lhd(y,z) \wedge \textsf{cons}(y) \wedge \textsf{vocal}(z) \wedge \textsf{onset}(x))\\
+								&\vee \exists x,y,z (\lhd(z,y) \wedge \textsf{glottal}(y) \wedge \textsf{vocal}(z) \wedge \textsf{slot}(x))\\
+\alpha^{(1,1)}(x,y) &\defeq \textsf{upper}(x) \vee \sigma(y)\\
+					&\vee \textsf{rime}(x)\vee (\textsf{H}(y) \wedge\textsf{L}(y))
 \end{align*}
 
+\begin{align*}
+	\phi_{\textsf{license}}(x) \defeq& \text{True}\\
+	\textit{C} \defeq& 2, \\
+	\sigma^1(x) \defeq& \sigma(x)\\
+	\textsf{onset}^1 (x)\defeq& \textsf{onset} (x) \\
+	\textsf{rime}^1 (x) \defeq& \textsf{rime} (x) \\
+	\textsf{H}^1 (x) \defeq& \textsf{H} (x) \\
+	\textsf{L}^1 (x) \defeq& \textsf{L} (x) \\
+	\textsf{slot}^1 (x) \defeq& \textsf{slot} (x)\\
+	\textsf{slot}^2 (x) \defeq & \textsf{cons}(x) \wedge\exists y\;(\lhd(x,y) \wedge \textsf{vocal}(y))\\
+						\vee & \textsf{glottal}(x) \wedge\exists y\;(\lhd(y,x) \wedge \textsf{vocal}(y))\\
+	\textsf{cons}^1 (x) & \defeq \textsf{cons} (x), \\
+	\textsf{vowel}^1 (x) & \defeq \textsf{vowel} (x) \\
+	\textsf{st}(x^1) & \defeq \textsf{upper}(x) \vee \lnot \textsf{sl}(x) \\
+	\lhd^{(1,1)}(x,y) &\defeq \lhd(x,y), \\[4pt]
+	\blacktriangledown^{(1,1)}(x,y) \defeq & \blacktriangledown(x,y) \\
+									\vee  & \lnot \textsf{onset}(x) \wedge \textsf{glottal}(y))\\
+	\blacktriangledown^{(1,2)}(x,y) \defeq & \exists x,y,z (\lhd(y,z) \wedge \textsf{cons}(y) \wedge \textsf{vocal}(z) \wedge \textsf{onset}(x))\\
+	\vee &\exists x,y,z (\lhd(z,y) \wedge \textsf{glottal}(y) \wedge \textsf{vocal}(z) \wedge \textsf{rime}(x))\\
+	\blacktriangledown^{(2,1)}(x,y) \defeq & \exists x,y,z (\lhd(y,z) \wedge \textsf{cons}(y) \wedge \textsf{vocal}(z) \wedge x = y)\\
+	\vee &\exists x,y,z (\lhd(z,y) \wedge \textsf{glottal}(y) \wedge \textsf{vocal}(z) \wedge x = y)\\
+	\alpha^{(1,1)}(x,y) &\defeq
+	\exists x,y,z (
+	\textsf{cons}(x)
+	\wedge
+	\textsf{vow}(z)
+	\wedge
+	\textsf{st}(y)
+	\wedge
+	\lhd(x,z)
+	) \\
+	&\vee
+	\exists x,y,z (
+	\textsf{vowel}(x)
+	\wedge
+	\textsf{H}(y)
+	\wedge
+	\textsf{L}(y)
+	)
+\end{align*}
 
 
 \bibliography{refs.bib}
