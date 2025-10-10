@@ -128,43 +128,64 @@ diverges from this proposal, offering a different analysis of syllable
 structure in Shanghainese.
 
 \section{Proposal}
-There are four goals of this paper. First, I compare two competing theories 
-from \citet{duanmu1988} and \citet{zhu1999shanghai} from a learning
-perspective.
-These two models are chosen because their underlying syllabic structures are 
-both comparable and explicitly formulated, and because register and pitch nodes 
-are embedded at different levels of structure in each model. Moreover, the
-models
-are distinct both representationally and mathematically. In contrast, 
-\citet{oakdenNotationalEquivalenceTonal2020} argues that the long-standing
-competition
-between Bao’s and Yip’s models are notationally equivalent and translatable
-into each
-other without loss of contrast. This distinction will be discussed further in
-Section XXX.
+This paper has four main goals. First, I compare two competing analyses of 
+Shanghai tone proposed by \citet{duanmu1988} and \citet{zhu1999shanghai} 
+from a learning perspective. These two models are selected because their 
+underlying syllabic structures are comparable, yet they differ in where 
+register and pitch nodes are embedded within the structure.
 
-Each model is represented in model-theoretic terms so that relations such as
-association,
-succession, and dominance are rigorously encoded. Learning is carried out using
-the Bottom-Up
-Factorial Inference Algorithm (BUFIA; \citet{chandleeBufia2019}), which
-operates over model-theoretic
-inputs based on the two representations.
+In general tonology, two major theoretical models have been proposed by 
+Bao and Yip. The key difference between them concerns the structural 
+relation between register and tone: whether they stand in a sister relationship 
+or a parent–child relationship. However, \citet{oakdenNotationalEquivalenceTonal2020} 
+argues that these models are notationally equivalent and can be translated into 
+one another without any loss of contrast. 
 
-Our learning goals have two components. First, we examine tonotactics: the
-co-occurrence
-patterns between tones and features (register or voicing). We run BUFIA on both
-representational models, testing them on monosyllabic and disyllabic forms, to
-evaluate which model more effectively captures these patterns, particularly the
-agreement between voicing and tone.
+For shanghainese models, Duanmu’s model aligns more closely with Bao’s, 
+while Zhu’s is more similar to Yip’s. This raises the question: Are 
+Duanmu’s and Zhu’s models also equivalent? To address this, I represent 
+each model in model-theoretic terms, so that relations such as 
+association, succession, and dominance are precisely defined. The 
+models are considered equivalent if: (1) their formal definitions are 
+equivalent, and (2) they predict the same tonal processes without 
+loss of contrast.
 
-Register/voicing assimilation: the rules governing disyllabic compounds.
-The central question is which representational hypothesis best captures the
-relevant generalizations in both tonotactics and register assimilation.
-Conversely, if a representation fails to encode the appropriate dependencies,
-learning over such a representation will either over generate, under generate,
-or yield predictions that are empirically unattested.
+I demonstrate formal equivalence by constructing a logical transduction between the two models. To address the second criterion, I employ the Bottom-Up Factorial Inference Algorithm (BUFIA; \citealt{chandleeBufia2019}), which learns tonotactic generalizations from model-theoretic representations derived from both Duanmu’s and Zhu’s structures.The central question is which representational hypothesis best captures the relevant generalizations in both tonotactics and register assimilation.
 
+To siumplied the process, we elimiate the specific phonetic segments, but 
+
+\begin{table}[h!]
+	\centering
+	\begin{minipage}{0.25\textwidth}
+		\begin{align*}
+			\textsf{cons} &\stackrel{\text{def}}{=} \{\text{p, b, t, d, k, g}\}\\
+			\textsf{vocalic} &\stackrel{\text{def}}{=} \{\text{a, i, e, u}\}\\
+			\textsf{nasal} &\stackrel{\text{def}}{=} \{\text{m, n, \textipa{N}}\}\\
+			\textsf{glottal} &\stackrel{\text{def}}{=} \{\text{\textglotstop, \texthth}\}\\
+			\textsf{voiced} &\stackrel{\text{def}}{=} \{\text{b, d, g}\}
+		\end{align*}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.7\textwidth}
+		\centering
+		\begin{tabular}{lccccccccccccc}
+			\hline
+			& D & G & N & T & g & \`{a} & \'{a} & \^{a} & \={a} & \'{n} & \c{n} & \v{n} & \v{a} \\
+			\hline
+			nas   & - & - & + & - & - & - & - & - & - & + & + & + & - \\
+			cons  & + & + & + & + & + & - & - & - & - & + & + & + & - \\
+			son   & - & - & + & - & - & + & + & + & + & + & + & + & + \\
+			voi   & + & + & + & - & - & + & + & + & + & + & + & + & + \\
+			cg    & - & + & - & - & + & - & - & - & - & - & - & - & - \\
+			H     & 0 & 0 & 0 & 0 & 0 & - & + & - & - & - & - & + & + \\
+			L     & 0 & 0 & 0 & 0 & 0 & + & - & - & + & - & + & - & - \\
+			short & 0 & 0 & 0 & 0 & 0 & + & + & - & - & - & - & - & - \\
+			fall  & 0 & 0 & 0 & 0 & 0 & - & - & - & - & - & - & + & + \\
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\caption{Feature definitions and specification table for Shanghai segments.}
+\end{table}
 
 \subsection{Duanmu}
 Duanmu’s model employs the x-slot as the basic unit, proposing that most
@@ -201,7 +222,7 @@ each tier.relation $\lhd$). The signature of $\mathcal{M}^{\text{pa\textglotstop
 = \langle 
 D;\;
 \{\, R_i \mid i \in 
-\{\text{a}, \text{e}, \text{i}, \text{p}, \text{b}, \text{t}, \ldots\}
+\{\text{D}, \text{T}, \text{V}, \text{N},\text{G}\}
 \cup
 \{\text{H}, \text{L}, \text{st}, \text{sl}, \sigma, \text{onset}, \text{rime}, \text{slot}\} \,\}
 \cup
@@ -209,13 +230,7 @@ D;\;
 \rangle
 \]
 We can further use those atoms to include the  features:
-\begin{align*}
-\textsf{cons} &\stackrel{\text{def}}{=} \{p,b,t,d,k,g\}\\
-\textsf{vocalic} &\stackrel{\text{def}}{=} \{a,i,e,u\}\\
-\textsf{nasal} &\stackrel{\text{def}}{=} \{m,n,N\}\\
-\textsf{glottal} &\stackrel{\text{def}}{=} \{\text{\textglotstop,\texthth}\}\\
-\textsf{voiced} &\stackrel{\text{def}}{=} \{\text{b,d,g}\}\\
-\end{align*}
+
 \input{model.tex}
 
 The same word \text{pa\textglotstop} in the representational proposed by Zhu will have 
@@ -302,6 +317,38 @@ D;\;
 	\textsf{L}(y)
 	)
 \end{align*}
+
+\section{Learning Register and Voicing}
+ This section I report the results that BUFIA found. 
+ \begin{enumerate}
+\item two representational models
+\item apply to monosyllabic forms and dysyllabic forms
+\item try to come up with some learning process of tonal processes
+\item evaluate 
+ \end{enumerate}
+
+In this experiment, the segmental inventory was simplified to include only D (voiced), T (voiceless), N (nasal), and V (vowel), some optionally bearing tonal markers. Because nasal sounds can also function as syllabic segments and carry tone, N with tonal markers was treated as a syllabified symbol.
+
+\subsection{Monosyllabic Tonotactics}
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{ll}
+		\hline
+		{[\,]} & {[+voi, -son]} \\
+		{[\,]} & {[-cg, -voi]} \\
+		{[-H]} & {[-H]} \\
+		{[-H]} & {[+H]} \\
+		{[-son]} & {[-voi, +cg]} \\
+		{[+H]} & {[-H]} \\
+		{[+H]} & {[+H]} \\
+		{[-voi]} & {[+L]} \\
+		{[-H, -L]} & {[-voi, +cg]} \\
+		{[-voi, +cg]} & {[-L]} \\
+		\hline
+	\end{tabular}
+	\caption{Feature pairings used in the experiment.}
+\end{table}
+
 
 
 \bibliography{refs.bib}
