@@ -1,0 +1,93 @@
+word,tone,mandarin,gloss,register,tone_base,checked,syllable_count,contains_glottal_stop,tone_value,syll1,syll2
+ɛ,T1,哀,grief,1,T1,FALSE,1,FALSE,53,ɛ,
+pɛ,T1,杯,cup,1,T1,FALSE,1,FALSE,53,pɛ,
+tɛ,T1,堆,stack,1,T1,FALSE,1,FALSE,53,tɛ,
+ɛ,T2,爱,love,1,T2,FALSE,1,FALSE,35,ɛ,
+pɛ,T2,板,board,1,T2,FALSE,1,FALSE,35,pɛ,
+tɛ,T2,胆,gallbladder,1,T2,FALSE,1,FALSE,35,tɛ,
+ɛ,T3,咸,salty,0,T3,FALSE,1,FALSE,13,ɛ,
+bɛ,T3,办,handle,0,T3,FALSE,1,FALSE,13,bɛ,
+dɛ,T3,谈,talk,0,T3,FALSE,1,FALSE,13,dɛ,
+aʔ,T4,鸭,duck,1,T4,TRUE,1,TRUE,5,aʔ,
+paʔ,T4,八,eight,1,T4,TRUE,1,TRUE,5,paʔ,
+taʔ,T4,搭,build,1,T4,TRUE,1,TRUE,5,taʔ,
+aʔ,T5,盒,box,0,T5,TRUE,1,TRUE,3,aʔ,
+baʔ,T5,白,white,0,T5,TRUE,1,TRUE,3,baʔ,
+daʔ,T5,踏,tread,0,T5,TRUE,1,TRUE,3,daʔ,
+fɛ,T1,翻,turn over,1,T1,FALSE,1,FALSE,53,fɛ,
+sɛ,T1,三,three,1,T1,FALSE,1,FALSE,53,sɛ,
+mɛ,T1,蛮,quite,1,T1,FALSE,1,FALSE,53,mɛ,
+nɛ,T1,拿,take,1,T1,FALSE,1,FALSE,53,nɛ,
+fɛ,T2,反,reverse,1,T2,FALSE,1,FALSE,35,fɛ,
+sɛ,T2,伞,umbrella,1,T2,FALSE,1,FALSE,35,sɛ,
+mɛ,T2,美,beautiful,1,T2,FALSE,1,FALSE,35,mɛ,
+vɛ,T3,饭,rice,0,T3,FALSE,1,FALSE,13,vɛ,
+zɛ,T3,才,talent,0,T3,FALSE,1,FALSE,13,zɛ,
+mɛ,T3,梅,plum,0,T3,FALSE,1,FALSE,13,mɛ,
+nɛ,T3,难,difficult,0,T3,FALSE,1,FALSE,13,nɛ,
+faʔ,T4,发,deliver,1,T4,TRUE,1,TRUE,5,faʔ,
+saʔ,T4,杀,kill,1,T4,TRUE,1,TRUE,5,saʔ,
+vaʔ,T5,罚,punish,0,T5,TRUE,1,TRUE,3,vaʔ,
+zaʔ,T5,石,stone,0,T5,TRUE,1,TRUE,3,zaʔ,
+maʔ,T5,麦,wheat,0,T5,TRUE,1,TRUE,3,maʔ,
+naʔ,T5,纳,accept,0,T5,TRUE,1,TRUE,3,naʔ,
+pɛ.tsz,T1,杯子,cup,1,T1,FALSE,2,FALSE,53,pɛ,tsz
+tɛ.ɕiŋ,T1,担心,worry,1,T1,FALSE,2,FALSE,53,tɛ,ɕiŋ
+pɛ.tɕɪʔ,T2,背脊,back (of the body),1,T2,TRUE,2,TRUE,35,pɛ,tɕɪʔ
+tɛ.tsz,T2,胆子,courage,1,T2,FALSE,2,FALSE,35,tɛ,tsz
+bɛ.koŋ,T3,办公,work,0,T3,FALSE,2,FALSE,13,bɛ,koŋ
+dɛ.tsz,T3,台子,table,0,T3,FALSE,2,FALSE,13,dɛ,tsz
+paʔ.paʔ,T4,八百,eight hundreds,1,T4,TRUE,2,TRUE,5,paʔ,paʔ
+taʔ.sɛ,T4,搭讪,hit on (someone),1,T4,TRUE,2,TRUE,5,taʔ,sɛ
+baʔ.pɛ,T5,白板,white board,0,T5,TRUE,2,TRUE,3,baʔ,pɛ
+daʔ.zaʔ,T5,踏实,steady and sure,0,T5,TRUE,2,TRUE,3,daʔ,zaʔ
+fɛ.ɪʔ,T1,翻译,translate,1,T1,TRUE,2,TRUE,53,fɛ,ɪʔ
+sɛ.ɕi,T1,三鲜,shredded sea foods,1,T1,FALSE,2,FALSE,53,sɛ,ɕi
+fɛ.wɛ,T2,返回,return,1,T2,FALSE,2,FALSE,35,fɛ,wɛ
+sɛ.piŋ,T2,伞柄,handle of the umbrella,1,T2,FALSE,2,FALSE,35,sɛ,piŋ
+vɛ.wø,T3,饭碗,bowl,0,T3,FALSE,2,FALSE,13,vɛ,wø
+zɛ.nəŋ,T3,才能,talent,0,T3,FALSE,2,FALSE,13,zɛ,nəŋ
+faʔ.lɪʔ,T4,法律,law,1,T4,TRUE,2,TRUE,5,faʔ,lɪʔ
+saʔ.tshu,T4,塞车,traffic jam,1,T4,TRUE,2,TRUE,5,saʔ,tshu
+vaʔ.kø,T5,罚款,monetary penalty,0,T5,TRUE,2,TRUE,3,vaʔ,kø
+zaʔ.dɤ,T5,石头,stone,0,T5,TRUE,2,TRUE,3,zaʔ,dɤ
+tsɔ.pɛ,T1-high,早班,morning shift,1,T1,FALSE,2,FALSE,53,tsɔ,pɛ
+tɕi.tɛ,T1-high,简单,easy,1,T1,FALSE,2,FALSE,53,tɕi,tɛ
+ku.pɛ,T1-low,科班,professional training,1,T1,FALSE,2,FALSE,33,ku,pɛ
+sz.tɛ,T1-low,私单,private deal,1,T1,FALSE,2,FALSE,33,sz,tɛ
+ɕi.pɛ,T2-high,死板,stubborn,1,T2,FALSE,2,FALSE,35,ɕi,pɛ
+tɕiɔ.tɛ,T2-high,校对,proofread,1,T2,FALSE,2,FALSE,35,tɕiɔ,tɛ
+kø.pɛ,T2-low,干贝,dried scallop,1,T2,FALSE,2,FALSE,24,kø,pɛ
+tsz.tɛ,T2-low,猪胆,pig’s gallbladder (Chinese medicine),1,T2,FALSE,2,FALSE,24,tsz,tɛ
+phɛ.bɛ,T3-high,配备,equip,0,T3,FALSE,2,FALSE,23,phɛ,bɛ
+tsz.dɛ,T3-high,子弹,bullet,0,T3,FALSE,2,FALSE,23,tsz,dɛ
+tshɔ.bɛ,T3-low,操办,manage,0,T3,FALSE,2,FALSE,13,tshɔ,bɛ
+tɕi.dɛ,T3-low,鸡蛋,chicken egg,0,T3,FALSE,2,FALSE,13,tɕi,dɛ
+sz.paʔ,T4-high,四百,four hundreds,1,T4,TRUE,2,TRUE,5,sz,paʔ
+pɔ.taʔ,T4-high,报答,return back,1,T4,TRUE,2,TRUE,5,pɔ,taʔ
+sɛ.paʔ,T4-low,三百,three hundreds,1,T4,TRUE,2,TRUE,3,sɛ,paʔ
+i.taʔ,T4-low,医德,medical ethics,1,T4,TRUE,2,TRUE,3,i,taʔ
+ɕiɔ.baʔ,T5-high,小白,(nickname) Little Bai,0,T5,TRUE,2,TRUE,5,ɕiɔ,baʔ
+tsø.daʔ,T5-high,转达,transmit,0,T5,TRUE,2,TRUE,5,tsø,daʔ
+kɔ.baʔ,T5-low,茭白,water bamboo (edible plant),0,T5,TRUE,2,TRUE,3,kɔ,baʔ
+ɔ.daʔ,T5-low,凹凸,concavity,0,T5,TRUE,2,TRUE,3,ɔ,daʔ
+tshɔ.fɛ,T1-high,吵翻,quarrel,1,T1,FALSE,2,FALSE,53,tshɔ,fɛ
+thɔ.sɛ,T1-high,套衫,sweater,1,T1,FALSE,2,FALSE,53,thɔ,sɛ
+sɛ.fɛ,T1-low,三番,time and again,1,T1,FALSE,2,FALSE,33,sɛ,fɛ
+i.sɛ,T1-low,衣衫,clothes,1,T1,FALSE,2,FALSE,33,i,sɛ
+tɕhi.fɛ,T2-high,遣返,repatriate,1,T2,FALSE,2,FALSE,35,tɕhi,fɛ
+tsɤ.sɛ,T2-high,走散,lost,1,T2,FALSE,2,FALSE,35,tsɤ,sɛ
+sɛ.fɛ,T2-low,三反,three-anti campaigns,1,T2,FALSE,2,FALSE,24,sɛ,fɛ
+ɕiɔ.sɛ,T2-low,消散,disappear,1,T2,FALSE,2,FALSE,24,ɕiɔ,sɛ
+tsɔ.vɛ,T3-high,早饭,breakfast,0,T3,FALSE,2,FALSE,23,tsɔ,vɛ
+tɕiɔ.zɛ,T3-high,教材,textbook,0,T3,FALSE,2,FALSE,23,tɕiɔ,zɛ
+tshz.vɛ,T3-low,糍饭,stuffed rice ball,0,T3,FALSE,2,FALSE,13,tshz,vɛ
+thi.zɛ,T3-low,天才,genius,0,T3,FALSE,2,FALSE,13,thi,zɛ
+zu.faʔ,T4-high,做法,method,1,T4,TRUE,2,TRUE,5,zu,faʔ
+pɛ.saʔ,T4-high,板刷,scrubbing brush,1,T4,TRUE,2,TRUE,5,pɛ,saʔ
+kɛ.faʔ,T4-low,开发,develop,1,T4,TRUE,2,TRUE,3,kɛ,faʔ
+tsz.saʔ,T4-low,知识,knowledge,1,T4,TRUE,2,TRUE,3,tsz,saʔ
+thi.vaʔ,T5-high,体罚,corporal punishment,0,T5,TRUE,2,TRUE,5,thi,vaʔ
+ɕy.zaʔ,T5-high,选择,choice,0,T5,TRUE,2,TRUE,5,ɕy,zaʔ
+i.vaʔ,T5-low,衣物,clothing,0,T5,TRUE,2,TRUE,3,i,vaʔ
+ɕy.zaʔ,T5-low,虚实,actual status,0,T5,TRUE,2,TRUE,3,ɕy,zaʔ
