@@ -1,6 +1,6 @@
 word,tone,mandarin,gloss,register,tone_base,checked,syllable_count,contains_glottal_stop,tone_value,syll1,syll2
 ɛ,T1,哀,grief,1,T1,FALSE,1,FALSE,53,ɛ,
-pɛ,T1,杯,cup,1,T1,FALSE,1,FALSE,53,pɛ,
+pɛ,T2,杯,cup,1,T1,FALSE,1,FALSE,53,pɛ,
 tɛ,T1,堆,stack,1,T1,FALSE,1,FALSE,53,tɛ,
 ɛ,T2,爱,love,1,T2,FALSE,1,FALSE,35,ɛ,
 pɛ,T2,板,board,1,T2,FALSE,1,FALSE,35,pɛ,

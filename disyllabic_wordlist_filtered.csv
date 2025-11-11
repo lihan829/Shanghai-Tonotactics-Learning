@@ -1,0 +1,10 @@
+word,tone,features
+
+thɔ.sɛ,T1-high,"[['cons', '-voi'], ['voc'], ['cons', '-voi'], ['voc']]"
+fɛ.wɛ,T2,"[['cons', '-voi'], ['voc'], [None], ['voc']]"
+ɕi.pɛ,T2-high,"[['cons'], ['voc'], ['cons', '-voi'], ['voc']]"
+sɛ.fɛ,T1-low,"[['cons', '-voi'], ['voc'], ['cons', '-voi'], ['voc']]"
+tɕiɔ.zɛ,T3-high,"[['cons', '-voi'], ['voc'], ['voc'], ['cons', '+voi'], ['voc']]"
+zu.faʔ,T4-high,"[['cons', '+voi'], ['voc'], ['cons', '-voi'], ['voc'], ['cons', 'cg']]"
+tɕi.tɛ,T1-high,"[['cons', '-voi'], ['voc'], ['cons', '-voi'], ['voc']]"
+ku.pɛ,T1-low,"[['cons', '-voi'], ['voc'], ['cons', '-voi'], ['voc']]"
